@@ -96,6 +96,7 @@ $('cfgReset').onclick=()=>{if(!confirm('Delete all locally stored documents, aud
 })();
 
 
+document.addEventListener('change',e=>{if(e.target?.id==='sourceChecked')drawPreview()});
 fillCfg();applyTheme();
 if(docs.length)selected=docs[0].id;draw();
 })();
