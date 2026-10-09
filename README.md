@@ -1,15 +1,19 @@
 # LEDGERLB
 
-Lebanon-first accountant review workspace and ERP integration project.
+Lebanon-first accountant review workspace with an integrated StockPro operational layer.
 
-## Prototype
-This repository is a prototype, not production accounting software. Use fictional data only. Lebanese VAT rules, exchange rates and filing requirements must be verified independently.
+## Run locally
+Open `index.html` in a browser alongside `ledgerlb.html` and `stockpro.html`.
 
-## Architecture
-- Accounting and document review: LedgerLB
-- Operational sales, purchases and inventory: StockPro layer (integration package preserved separately)
-- Human approval before posting
-- Documented audit trail and exportable journals
+## Deployment — Cloudflare Pages
+Connect only the new GitHub repository **SE-66/LEDGERLB** to Cloudflare Pages:
+- Production branch: `main`
+- Framework preset: `None`
+- Build command: `exit 0` (or leave blank)
+- Build output directory: `/` (repository root)
+- Root directory: repository root
 
-## Deployment
-GitHub Pages hosts a static demonstration only. It is not secure hosting for confidential accounting data.
+Cloudflare Pages will deploy the static HTML site and redeploy on pushes to `main`. Do not enable GitHub Pages for this project.
+
+## Prototype warning
+This is not production accounting software. Use fictional data only. It currently lacks secure server-side authentication and a centralized accounting database. Currency/tax rules and reporting must be independently validated before production use.
