@@ -58,6 +58,7 @@ body>header button{color:#132f3a}
 #sp2-shellnav{position:fixed!important;top:72px!important;right:0!important;bottom:0!important;width:var(--sp-side)!important;height:auto!important;padding:24px 12px!important;display:flex!important;flex-direction:column!important;gap:5px!important;overflow-y:auto!important;overflow-x:hidden!important;z-index:35!important;background:#112f3c!important;border:0!important;box-shadow:4px 0 20px rgba(20,38,55,.08)}
 #sp2-shellnav:before{content:"WORKSPACE";display:block;color:#8ca9b2;font:700 10px Poppins,sans-serif;letter-spacing:2px;padding:3px 14px 13px;text-align:left}
 #sp2-shellnav button{display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-shrink:0!important;width:100%!important;min-height:43px!important;padding:11px 14px!important;border:0!important;border-radius:11px!important;color:#c9e0e6!important;text-transform:none!important;text-align:left!important;white-space:normal!important;font-size:12px!important;transition:background .18s,color .18s}
+#sp2-shellnav button.sp2-filtered{display:none!important}
 #sp2-shellnav button:hover{background:#244958!important;color:white!important}
 #sp2-shellnav button.nav-link.active{background:#177f6c!important;color:#fff!important;border:0!important;box-shadow:none!important}
 #sp2-navsearch{background:#1f4552!important;border:1px solid #365967!important;color:white!important;width:100%;border-radius:9px;padding:11px;margin-bottom:10px;font-size:12px}
@@ -5978,7 +5979,7 @@ body>main input:focus,body>main select:focus{outline:2px solid #168e79!important
     if(!nav||!header||!main||document.getElementById('sp2-context'))return;
     const q=document.createElement('input');q.id='sp2-navsearch';q.type='search';q.placeholder='Search modules…';q.setAttribute('aria-label','Search modules');nav.prepend(q);
     const buttons=[...nav.querySelectorAll('button.nav-link')];
-    q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();buttons.forEach(b=>b.style.display=b.textContent.toLowerCase().includes(v)?'flex':'none')});
+    q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();buttons.forEach(b=>b.classList.toggle('sp2-filtered',!b.textContent.toLowerCase().includes(v)))});
     const toggle=document.createElement('button');toggle.id='sp2-mobileToggle';toggle.textContent='☰ Modules';toggle.setAttribute('aria-label','Open modules');header.querySelector('div.flex')?.prepend(toggle);
     toggle.addEventListener('click',()=>document.body.classList.toggle('sp2-menu-open'));
     const strip=document.createElement('div');strip.id='sp2-context';strip.innerHTML='<div><h2 id="sp2-current">Dashboard</h2><small>StockPro 2.0 / Operations workspace</small></div><span id="sp2-status">● Browser prototype</span>';main.prepend(strip);
