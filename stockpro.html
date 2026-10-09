@@ -76,6 +76,11 @@ body>main input:focus,body>main select:focus{outline:2px solid #168e79!important
 .dark-mode #sp2-context h2{color:#effaff}
 @media(max-width:900px){:root{--sp-side:0px}#sp2-shellnav{display:none!important;width:255px!important;top:72px!important;box-shadow:0 10px 30px #0005}body.sp2-menu-open #sp2-shellnav{display:flex!important}#sp2-mobileToggle{display:inline-block}body>main#mainContent{margin-right:0!important;padding:15px!important}body>header{padding:0 14px!important}}
 
+/* Embedded operational modules: LEDGERLB owns the global header/navigation. */
+body.sp2-embedded>header,body.sp2-embedded>#sp2-shellnav{display:none!important}
+body.sp2-embedded>main#mainContent{margin-right:0!important;padding:18px!important;height:100vh!important}
+body.sp2-embedded #sp2-context{display:none!important}
+body.sp2-embedded{height:100vh!important}
 </style>
 </head>
 <body class="h-screen flex flex-col">
@@ -5967,7 +5972,7 @@ body>main input:focus,body>main select:focus{outline:2px solid #168e79!important
   try { parent.postMessage({protocol:'ledgerlb-stockpro-v1',type:'SNAPSHOT',data:{sales:erpData.sales,purchases:erpData.purchases,company:erpData.company,settings:erpData.settings}},'*') } catch(e) {}
  }
  if(typeof original==='function') window.saveData=function(){const result=original.apply(this,arguments);snapshot();return result};
- window.addEventListener('message',e=>{if(e.source!==parent)return;if(e.data&&e.data.protocol==='ledgerlb-host-v1'&&e.data.type==='GET_SNAPSHOT')snapshot()});
+ window.addEventListener('message',e=>{if(e.source!==parent)return;if(e.origin!==location.origin||!e.data||e.data.protocol!=='ledgerlb-host-v1')return;if(e.data.type==='GET_SNAPSHOT')snapshot();if(e.data.type==='OPEN_MODULE'&&['dashboard','inventory','sales','purchases','customers','suppliers','reports','settings'].includes(e.data.module))switchModule(e.data.module,null)});
  window.addEventListener('load',()=>setTimeout(snapshot,200));
 })();
 </script>
@@ -5976,7 +5981,7 @@ body>main input:focus,body>main select:focus{outline:2px solid #168e79!important
 (function(){
   function init(){
     const nav=document.getElementById('sp2-shellnav'),header=document.querySelector('body > header'),main=document.getElementById('mainContent');
-    if(!nav||!header||!main||document.getElementById('sp2-context'))return;
+    if(window.parent!==window){document.body.classList.add('sp2-embedded');return;}if(!nav||!header||!main||document.getElementById('sp2-context'))return;
     const q=document.createElement('input');q.id='sp2-navsearch';q.type='search';q.placeholder='Search modules…';q.setAttribute('aria-label','Search modules');nav.prepend(q);
     const buttons=[...nav.querySelectorAll('button.nav-link')];
     q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();buttons.forEach(b=>b.classList.toggle('sp2-filtered',!b.textContent.toLowerCase().includes(v)))});
