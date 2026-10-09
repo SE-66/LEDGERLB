@@ -3,15 +3,56 @@
 *{box-sizing:border-box}body{margin:0;background:#f2f5f8;color:#18313b;font:14px system-ui,Arial,sans-serif}
 .shell{height:100vh;display:grid;grid-template-columns:240px minmax(0,1fr);overflow:hidden}.sidebar{background:#102d39;color:#d6e9ec;padding:21px 13px;overflow-y:auto}.brand{font-size:23px;font-weight:850;color:#fff;padding:2px 12px 4px}.brand b{color:#5fd8b5}.tag{font-size:11px;color:#9fbfc6;padding:0 12px 23px}.group{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#85a6af;margin:19px 12px 7px}.navbtn{display:flex;width:100%;align-items:center;gap:11px;padding:12px;border:0;border-radius:10px;background:transparent;color:#d6e7eb;cursor:pointer;text-align:left;font:600 13px system-ui}.navbtn:hover{background:#224b58}.navbtn.active{color:white;background:#177f6e}.workspace{min-width:0;display:flex;flex-direction:column;height:100vh}.toolbar{background:white;border-bottom:1px solid #dfe8ed;padding:15px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.title{font-size:21px;font-weight:800}.subtitle{font-size:12px;color:#607780;margin-top:3px}.actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.pill{background:#e9f6f1;color:#087966;border-radius:99px;padding:8px 12px;font-size:11px;font-weight:800}.btn{background:white;border:1px solid #cbd9dd;border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:700;color:#244550}.btn.primary{background:#177f6e;color:white;border-color:#177f6e}.notice{background:#fff4dc;padding:8px 24px;font-size:11px;color:#68502e}.content{position:relative;flex:1;min-height:0}iframe{display:none;width:100%;height:100%;border:0;background:white}iframe.active{display:block}.foot{padding:7px 22px;background:white;border-top:1px solid #e2e9ec;display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#667f86}#menuToggle{display:none}
 @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{position:fixed;z-index:20;top:0;bottom:0;left:0;width:240px;transform:translateX(-101%);transition:transform .2s}.menu-open .sidebar{transform:translateX(0)}#menuToggle{display:inline-block}.toolbar{padding:11px}.notice{padding:8px 11px}}
+
+/* LEDGERLB UX refresh — accessible, calm and consistent */
+:root{--ink:#193844;--muted:#637b85;--green:#11816c;--line:#e3eaf0;--canvas:#f4f7fb}
+body{background:var(--canvas);color:var(--ink);font-size:14px}
+.shell{grid-template-columns:258px minmax(0,1fr)}
+.sidebar{background:linear-gradient(180deg,#102e3b,#0e2935);padding:22px 15px}
+.brand{font-size:24px;letter-spacing:-.8px}
+.tag{line-height:1.5;padding-bottom:14px}
+.group{margin-top:25px;margin-bottom:8px}
+.navbtn{font-size:13px;min-height:45px;border-radius:12px;padding:12px 13px;transition:background .15s,color .15s}
+.navbtn.active{background:#167b69;box-shadow:inset 3px 0 0 #8ae6c8}
+.navbtn:focus-visible,.btn:focus-visible,#moduleSearch:focus-visible{outline:3px solid #85d9c1;outline-offset:2px}
+.navbtn .navicon{width:21px;display:inline-flex;font-size:18px;justify-content:center;opacity:.9}
+#moduleSearch{width:100%;border:1px solid #315766;color:#fff;border-radius:11px;padding:12px 13px;background:#20424d;font:13px system-ui;margin:7px 0 5px}
+#moduleSearch::placeholder{color:#bbd1d5}
+#moduleSearchWrap{padding:0 5px}
+#sidebarBottom{margin:22px 7px 0;padding:13px;background:#1e424d;border:1px solid #325866;border-radius:12px;font-size:11px;color:#c8dde1;line-height:1.5}
+.toolbar{padding:18px 24px;min-height:84px;box-shadow:0 1px 4px #18333e06;flex-shrink:0}
+.title{font-size:23px;letter-spacing:-.6px}
+.subtitle{font-size:12px;line-height:1.5}
+.btn{min-height:38px;transition:background .16s,transform .16s;font-size:12px}
+.btn:hover{background:#f1f6f7}
+.btn.primary:hover{background:#0e6557}
+.btn:active{transform:scale(.98)}
+.pill{font-size:11px;white-space:nowrap}
+.pill.loading{background:#fff3d7;color:#94640b}
+.pill.offline{background:#fce9e8;color:#ab342c}
+.notice{background:#fff8e9;color:#795522;border-bottom:1px solid #f0e3ca;line-height:1.45}
+.foot{padding:11px 22px;align-items:center;gap:17px}
+.foot span{white-space:normal}
+.foot span:before{content:'•';color:#14927a;margin-right:8px}
+#toast{position:fixed;right:24px;bottom:52px;padding:12px 17px;background:#153b47;color:#fff;border-radius:11px;z-index:40;box-shadow:0 12px 36px #142e3c2b;font-size:13px;max-width:340px}
+#toast[hidden]{display:none}
+#loadingMask{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:#f8fafc;color:#56717c}
+#loadingMask[hidden]{display:none}
+.spinner{width:28px;height:28px;border:3px solid #cce4dc;border-top-color:#167f6e;border-radius:50%;animation:sp-spin .8s linear infinite;margin:auto auto 15px}
+@keyframes sp-spin{to{transform:rotate(360deg)}}
+.navbtn[hidden]{display:none}
+@media(max-width:850px){.sidebar{width:min(290px,82vw)}.toolbar{padding:12px 14px;align-items:flex-start}.title{font-size:19px}.actions{width:100%;justify-content:flex-start}.notice{padding:9px 14px}.foot{padding:10px 14px;font-size:10px}#toast{left:12px;right:12px;bottom:50px}.shell{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
 </style></head><body><div class="shell"><aside class="sidebar" id="sidebar"><div class="brand">LEDGER<b>LB</b></div><div class="tag">One ERP · Operations + Finance</div>
-<div class="group">OVERVIEW</div><button class="navbtn active" data-area="stock" data-module="dashboard">◫ Dashboard</button>
+<div id="moduleSearchWrap"><input id="moduleSearch" type="search" placeholder="Search modules… (Ctrl+K)" aria-label="Search ERP modules"></div><div class="group">OVERVIEW</div><button class="navbtn active" data-area="stock" data-module="dashboard">◫ Dashboard</button>
 <div class="group">OPERATIONS</div><button class="navbtn" data-area="stock" data-module="inventory">▦ Inventory</button><button class="navbtn" data-area="stock" data-module="sales">▤ Sales & invoices</button><button class="navbtn" data-area="stock" data-module="purchases">▧ Purchases</button><button class="navbtn" data-area="stock" data-module="customers">♙ Customers</button><button class="navbtn" data-area="stock" data-module="suppliers">♧ Suppliers</button>
 <div class="group">ACCOUNTING</div><button class="navbtn" data-area="account">▤ Accounting workspace</button><button class="navbtn" data-area="stock" data-module="reports">◷ Operational reports</button>
 <div class="group">CONFIGURATION</div><button class="navbtn" data-area="stock" data-module="settings">⚙ Business settings</button>
-</aside><div class="workspace"><header class="toolbar"><div style="display:flex;align-items:center;gap:12px"><button id="menuToggle" class="btn" aria-label="Open navigation">☰</button><div><div class="title" id="pageTitle">Dashboard</div><div class="subtitle" id="pageSubtitle">StockPro operational data within LEDGERLB</div></div></div><div class="actions"><span class="pill" id="syncStatus">Connecting StockPro…</span><button class="btn" id="refresh">Refresh</button><button class="btn primary" id="sync">Sync accounting drafts</button></div></header>
+<div id="sidebarBottom">StockPro operations and LedgerLB accounting share one workspace. Draft entries require review.</div></aside><div class="workspace"><header class="toolbar"><div style="display:flex;align-items:center;gap:12px"><button id="menuToggle" class="btn" aria-label="Open navigation">☰</button><div><div class="title" id="pageTitle">Dashboard</div><div class="subtitle" id="pageSubtitle">StockPro operational data within LEDGERLB</div></div></div><div class="actions"><span class="pill loading" id="syncStatus">Connecting StockPro…</span><button class="btn" id="refresh">Refresh</button><button class="btn primary" id="sync">Sync accounting drafts</button></div></header>
 <div class="notice">Accounting controls: operational records become unverified review drafts. Verify source invoices, net/VAT and exchange rates before approval.</div>
-<main class="content"><iframe id="stockFrame" class="active" title="Operational modules" src="stockpro.html"></iframe><iframe id="accountFrame" title="Accounting workspace" src="ledgerlb.html"></iframe></main>
-<footer class="foot"><span id="counts">0 sales · 0 purchase orders</span><span id="queueCounts">0 review drafts · 0 approved</span><span id="audit">Waiting for module connection</span></footer></div></div>
+<main class="content"><div id="loadingMask"><div style="text-align:center"><div class="spinner"></div><strong>Opening your workspace</strong><div style="font-size:12px;margin-top:7px">Loading the operational modules…</div></div></div><iframe id="stockFrame" class="active" title="Operational modules" src="stockpro.html"></iframe><iframe id="accountFrame" title="Accounting workspace" src="ledgerlb.html"></iframe></main>
+<div id="toast" role="status" aria-live="polite" hidden></div><footer class="foot"><span id="counts">0 sales · 0 purchase orders</span><span id="queueCounts">0 review drafts · 0 approved</span><span id="audit">Waiting for module connection</span></footer></div></div>
 <script>
 const sf=document.getElementById('stockFrame'),af=document.getElementById('accountFrame'),origin=location.origin;
 let snapshot=null,stockReady=false,accountReady=false,lastSig='',activeModule='dashboard';
@@ -19,12 +60,17 @@ function records(){if(!snapshot)return [];return [...(snapshot.sales||[]).map(s=
 function requestSync(){if(stockReady)sf.contentWindow.postMessage({protocol:'ledgerlb-host-v1',type:'GET_SNAPSHOT'},origin)}
 function transfer(){if(!snapshot||!accountReady){document.getElementById('audit').textContent='Waiting for accounting or operations connection';requestSync();return;}af.contentWindow.postMessage({protocol:'ledgerlb-host-v1',type:'IMPORT_CANDIDATES',records:records()},origin)}
 function goStock(module){activeModule=module;if(stockReady)sf.contentWindow.postMessage({protocol:'ledgerlb-host-v1',type:'OPEN_MODULE',module},origin)}
-function go(btn){document.querySelectorAll('.navbtn').forEach(x=>x.classList.toggle('active',x===btn));const account=btn.dataset.area==='account';sf.classList.toggle('active',!account);af.classList.toggle('active',account);document.getElementById('pageTitle').textContent=btn.textContent.trim().replace(/^[^A-Za-z]+/,'');document.getElementById('pageSubtitle').textContent=account?'LedgerLB accounting and compliance review':'StockPro operational data within LEDGERLB';if(!account)goStock(btn.dataset.module);else requestSync();document.body.classList.remove('menu-open')}
-document.querySelectorAll('.navbtn').forEach(btn=>btn.addEventListener('click',()=>go(btn)));
+function go(btn){if(!btn)return;document.querySelectorAll('.navbtn').forEach(x=>x.classList.toggle('active',x===btn));const account=btn.dataset.area==='account';sf.classList.toggle('active',!account);af.classList.toggle('active',account);document.getElementById('pageTitle').textContent=btn.textContent.trim().replace(/^[^A-Za-z]+/,'');document.getElementById('pageSubtitle').textContent=account?'LedgerLB accounting and compliance review':'StockPro operational data within LEDGERLB';if(!account)goStock(btn.dataset.module);else requestSync();document.body.classList.remove('menu-open');document.getElementById('moduleSearch').blur()}
+document.querySelectorAll('.navbtn').forEach(btn=>{const raw=btn.textContent.trim();const icons={'Dashboard':'◫','Inventory':'▦','Sales & invoices':'▤','Purchases':'▧','Customers':'♙','Suppliers':'♧','Accounting workspace':'▤','Operational reports':'◷','Business settings':'⚙'};const label=raw.replace(/^[^A-Za-z]+/,'');btn.textContent='';const ico=document.createElement('span');ico.className='navicon';ico.setAttribute('aria-hidden','true');ico.textContent=icons[label]||'•';btn.append(ico,document.createTextNode(label));btn.addEventListener('click',()=>go(btn))});
+const moduleSearch=document.getElementById('moduleSearch');
+moduleSearch.addEventListener('input',()=>{const term=moduleSearch.value.toLowerCase().trim();document.querySelectorAll('.navbtn').forEach(b=>b.hidden=!b.textContent.toLowerCase().includes(term))});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.body.classList.add('menu-open');moduleSearch.focus()}if(e.key==='Escape')document.body.classList.remove('menu-open')});
+function toast(text){const n=document.getElementById('toast');n.textContent=text;n.hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>n.hidden=true,3500)}
+
 document.getElementById('menuToggle').addEventListener('click',()=>document.body.classList.toggle('menu-open'));
-document.getElementById('refresh').addEventListener('click',requestSync);document.getElementById('sync').addEventListener('click',()=>{transfer();const btn=document.querySelector('.navbtn[data-area="account"]');go(btn)});
+document.getElementById('refresh').addEventListener('click',()=>{requestSync();toast('Checking operational records…')});document.getElementById('sync').addEventListener('click',()=>{transfer();const btn=document.querySelector('.navbtn[data-area="account"]');go(btn);toast('Accounting review opened')});
 window.addEventListener('message',e=>{if(e.origin!==origin||!e.data)return;const d=e.data;
-if(e.source===sf.contentWindow&&d.protocol==='ledgerlb-stockpro-v1'&&d.type==='SNAPSHOT'){snapshot=d.data||{};document.getElementById('syncStatus').textContent='StockPro connected';document.getElementById('counts').textContent=`${snapshot.sales?.length||0} sales invoices · ${snapshot.purchases?.length||0} purchase orders`;const signature=JSON.stringify(records());if(signature!==lastSig&&accountReady){lastSig=signature;transfer()}}
+if(e.source===sf.contentWindow&&d.protocol==='ledgerlb-stockpro-v1'&&d.type==='SNAPSHOT'){snapshot=d.data||{};document.getElementById('syncStatus').textContent='● Operations connected';document.getElementById('syncStatus').classList.remove('loading','offline');document.getElementById('counts').textContent=`${snapshot.sales?.length||0} sales invoices · ${snapshot.purchases?.length||0} purchase orders`;const signature=JSON.stringify(records());if(signature!==lastSig&&accountReady){lastSig=signature;transfer()}}
 if(e.source===af.contentWindow&&d.protocol==='ledgerlb-bridge-v1'){if(d.type==='IMPORT_RESULT')document.getElementById('audit').textContent=`Synced ${d.added} new · ${d.skipped} existing/invalid`;if(d.type==='COUNTS')document.getElementById('queueCounts').textContent=`${d.pending} review drafts · ${d.approved} approved`}});
-sf.addEventListener('load',()=>{stockReady=true;goStock(activeModule);requestSync()});af.addEventListener('load',()=>{accountReady=true;requestSync()});setInterval(requestSync,5000);
+sf.addEventListener('load',()=>{stockReady=true;document.getElementById('loadingMask').hidden=true;goStock(activeModule);requestSync()});af.addEventListener('load',()=>{accountReady=true;requestSync()});setInterval(requestSync,5000);
 </script></body></html>
