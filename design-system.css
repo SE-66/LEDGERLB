@@ -21,3 +21,25 @@ button.bg-indigo-600:hover,button.bg-purple-600:hover,button.bg-blue-600:hover,.
 .dark-mode thead th{background:#283346!important;color:#c2ccda!important}
 .dark-mode tbody tr:hover{background:#303a4c}
 @media(max-width:768px){table{font-size:11px}input,select,textarea{font-size:14px!important}}
+
+
+/* LEDGERLB workspace UI v3 — approachable, content-first, Google Workspace-inspired */
+:root{--ui-bg:#f8fafd;--ui-card:#fff;--ui-text:#202124;--ui-muted:#5f6368;--ui-border:#e3e7ee;--ui-primary:#1a73e8;--ui-primary-hover:#1558b0;--ui-radius:16px;--ui-shadow:0 1px 3px rgba(60,64,67,.09)}
+html{color-scheme:light}
+body{background:var(--ui-bg)!important;color:var(--ui-text)!important;font-family:Arial,Roboto,'Google Sans',ui-sans-serif,system-ui,sans-serif!important;letter-spacing:0!important}
+h1,h2,h3,h4{color:#202124!important;letter-spacing:-.45px!important;font-weight:750!important}
+p,.small,.muted{color:#5f6368}
+.card,.panel,.box-card,.stat{border:1px solid #e3e7ee!important;border-radius:16px!important;box-shadow:0 1px 3px rgba(60,64,67,.06)!important;background:#fff!important}
+button{font-weight:650!important;line-height:1.25}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #a9c7fd!important;outline-offset:2px!important}
+button:disabled{opacity:.5!important}
+input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=file]),select,textarea{border:1px solid #dadce0!important;border-radius:9px!important;min-height:42px!important;background:#fff!important;color:#202124!important;padding:9px 12px!important}
+input:focus,select:focus,textarea:focus{border-color:#1a73e8!important;box-shadow:0 0 0 2px #1a73e817!important}
+label{font-size:12px!important;color:#3c4043!important;font-weight:650!important}
+table{background:#fff}thead th{background:#f8fafd!important;color:#5f6368!important;border-color:#e8eaed!important;font-size:11px!important}tbody tr:hover{background:#f7faff!important}tbody td{border-color:#eef0f3!important}
+button.bg-indigo-600,button.bg-purple-600,button.bg-blue-600,.btn.primary,.primary{background:#1a73e8!important;color:#fff!important;border-color:#1a73e8!important}
+.btn.primary:hover,.primary:hover{background:#1558b0!important}
+.tabs,.tab-list{background:#f1f4f9!important}.tabs button.selected{color:#1a73e8!important;font-weight:750!important}
+.pill{border-radius:999px!important}
+.dark-mode{--ui-bg:#161a22;--ui-card:#242a35;--ui-text:#eef2f7;--ui-muted:#a8b4c4;--ui-border:#3b4454}
+@media(max-width:700px){.formgrid,.grid-cols-2{gap:10px}table th,table td{padding:10px!important}}
