@@ -83,7 +83,20 @@ body.sp2-embedded #sp2-context{display:none!important}
 body.sp2-embedded{height:100vh!important}
 </style>
 <link rel="stylesheet" href="design-system.css">
-</head>
+<style id="ledgerlb-operations-theme">
+/* Consistent embedded operations workspace */
+html body.sp2-embedded{background:#f8fafd!important;color:#202124!important;font-family:Arial,Roboto,ui-sans-serif,system-ui,sans-serif!important}
+body.sp2-embedded>main#mainContent{background:#f8fafd!important;padding:22px 25px!important}
+body.sp2-embedded h1,body.sp2-embedded h2,body.sp2-embedded h3{font-family:Arial,Roboto,system-ui,sans-serif!important;font-weight:800!important;letter-spacing:-.5px!important;color:#202124!important}
+body.sp2-embedded .card{border:1px solid #e3e8ef!important;border-radius:18px!important;box-shadow:none!important;background:#fff!important}
+body.sp2-embedded button{border-radius:10px}
+body.sp2-embedded button.bg-indigo-600,body.sp2-embedded button.bg-blue-600,body.sp2-embedded button.bg-purple-600{background:#1a73e8!important;color:#fff!important}
+body.sp2-embedded input:not([type=checkbox]):not([type=radio]),body.sp2-embedded select,body.sp2-embedded textarea{border:1px solid #dadce0!important;border-radius:10px!important;min-height:42px!important}
+body.sp2-embedded input:focus,body.sp2-embedded textarea:focus,body.sp2-embedded select:focus{border-color:#1a73e8!important}
+body.sp2-embedded thead th{background:#f8fafd!important;color:#5f6368!important}
+body.sp2-embedded tbody tr:hover{background:#f7faff!important}
+@media(max-width:700px){body.sp2-embedded>main#mainContent{padding:12px!important}}
+</style></head>
 <body class="h-screen flex flex-col">
 
     <!-- Header -->
