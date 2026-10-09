@@ -45,6 +45,36 @@
         #global-dropdown::-webkit-scrollbar { width: 4px; }
         #global-dropdown::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         .dark-mode #global-dropdown::-webkit-scrollbar-thumb { background: #475569; }
+
+/* StockPro 2.0 — additive workspace shell. Legacy module IDs and handlers are preserved. */
+:root{--sp-side:232px;--sp-surface:#f3f6fa;--sp-accent:#167f6a}
+body{background:var(--sp-surface)!important}
+body>header{height:72px!important;padding:0 26px!important;background:#102b35!important;color:#f5fffd!important;border:0!important;backdrop-filter:none!important;flex-shrink:0}
+body>header h1{color:#fff!important}
+body>header h1 span{color:#64dec1!important}
+body>header p{color:#c4d7db!important;opacity:1!important}
+body>header #userName{color:#fff!important}
+body>header button{color:#132f3a}
+#sp2-shellnav{position:fixed!important;top:72px!important;right:0!important;bottom:0!important;width:var(--sp-side)!important;height:auto!important;padding:24px 12px!important;display:flex!important;flex-direction:column!important;gap:5px!important;overflow-y:auto!important;overflow-x:hidden!important;z-index:35!important;background:#112f3c!important;border:0!important;box-shadow:4px 0 20px rgba(20,38,55,.08)}
+#sp2-shellnav:before{content:"WORKSPACE";display:block;color:#8ca9b2;font:700 10px Poppins,sans-serif;letter-spacing:2px;padding:3px 14px 13px;text-align:left}
+#sp2-shellnav button{display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-shrink:0!important;width:100%!important;min-height:43px!important;padding:11px 14px!important;border:0!important;border-radius:11px!important;color:#c9e0e6!important;text-transform:none!important;text-align:left!important;white-space:normal!important;font-size:12px!important;transition:background .18s,color .18s}
+#sp2-shellnav button:hover{background:#244958!important;color:white!important}
+#sp2-shellnav button.nav-link.active{background:#177f6c!important;color:#fff!important;border:0!important;box-shadow:none!important}
+#sp2-navsearch{background:#1f4552!important;border:1px solid #365967!important;color:white!important;width:100%;border-radius:9px;padding:11px;margin-bottom:10px;font-size:12px}
+#sp2-navsearch::placeholder{color:#bed2d6}
+#sp2-mobileToggle{display:none;background:#187f6b;color:white;border:0;border-radius:9px;padding:8px 12px;font-weight:800}
+body>main#mainContent{margin-right:var(--sp-side)!important;padding:26px!important;background:var(--sp-surface)!important}
+body>main .card{border-radius:16px;box-shadow:0 2px 12px rgba(24,44,61,.055);border-color:#e2e8ef}
+body>main .metric-card{border-top:3px solid #1b8e79}
+body>main input:focus,body>main select:focus{outline:2px solid #168e79!important;outline-offset:1px}
+#sp2-context{margin-bottom:17px;display:flex;align-items:center;justify-content:space-between;gap:10px;direction:ltr}
+#sp2-context h2{font-weight:900;font-size:22px;color:#183944;margin:0}
+#sp2-context small{color:#69818d;font-size:11px}
+#sp2-status{border-radius:30px;background:#e7f5f0;color:#167f6a;padding:7px 12px;font-size:11px;font-weight:800}
+.dark-mode body,.dark-mode #mainContent{background:#101c29!important}
+.dark-mode #sp2-context h2{color:#effaff}
+@media(max-width:900px){:root{--sp-side:0px}#sp2-shellnav{display:none!important;width:255px!important;top:72px!important;box-shadow:0 10px 30px #0005}body.sp2-menu-open #sp2-shellnav{display:flex!important}#sp2-mobileToggle{display:inline-block}body>main#mainContent{margin-right:0!important;padding:15px!important}body>header{padding:0 14px!important}}
+
 </style>
 </head>
 <body class="h-screen flex flex-col">
@@ -72,8 +102,8 @@
         </div>
     </header>
 
-    <!-- Top Nav Tabs -->
-    <div class="h-12 px-6 flex items-center gap-6 glass border-b border-white/10 overflow-x-auto no-scrollbar sticky top-16 z-40">
+    <!-- StockPro 2.0 navigation -->
+    <div id="sp2-shellnav" class="h-12 px-6 flex items-center gap-6 glass border-b border-white/10 overflow-x-auto no-scrollbar sticky top-16 z-40">
         <button onclick="switchModule('dashboard', this)" class="nav-link active whitespace-nowrap text-[12px] font-black uppercase pb-3 border-b-4 border-transparent transition-all">📊 Dashboard</button>
         <button onclick="switchModule('inventory', this)" class="nav-link whitespace-nowrap text-[12px] font-black uppercase pb-3 border-b-4 border-transparent transition-all">📦 Inventory</button>
         <button onclick="switchModule('sales', this)" class="nav-link whitespace-nowrap text-[12px] font-black uppercase pb-3 border-b-4 border-transparent transition-all">🛒 Sales</button>
@@ -86,7 +116,8 @@
         <button onclick="switchModule('settings', this)" class="nav-link whitespace-nowrap text-[12px] font-black uppercase pb-3 border-b-4 border-transparent transition-all">⚙️ Settings</button>
     </div>
 
-    <!-- Main Content Area -->
+    <!-- StockPro 2.0 workspace context -->
+        <!-- Main Content Area -->
     <main id="mainContent" class="flex-1 overflow-y-auto custom-scroll px-6 py-6">
         <!-- Dashboard Module -->
         <div id="dashboard-module" class="space-y-6 animate-in">
@@ -5939,5 +5970,27 @@
  window.addEventListener('load',()=>setTimeout(snapshot,200));
 })();
 </script>
+
+<script id="stockpro-v2-shell">
+(function(){
+  function init(){
+    const nav=document.getElementById('sp2-shellnav'),header=document.querySelector('body > header'),main=document.getElementById('mainContent');
+    if(!nav||!header||!main||document.getElementById('sp2-context'))return;
+    const q=document.createElement('input');q.id='sp2-navsearch';q.type='search';q.placeholder='Search modules…';q.setAttribute('aria-label','Search modules');nav.prepend(q);
+    const buttons=[...nav.querySelectorAll('button.nav-link')];
+    q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();buttons.forEach(b=>b.style.display=b.textContent.toLowerCase().includes(v)?'flex':'none')});
+    const toggle=document.createElement('button');toggle.id='sp2-mobileToggle';toggle.textContent='☰ Modules';toggle.setAttribute('aria-label','Open modules');header.querySelector('div.flex')?.prepend(toggle);
+    toggle.addEventListener('click',()=>document.body.classList.toggle('sp2-menu-open'));
+    const strip=document.createElement('div');strip.id='sp2-context';strip.innerHTML='<div><h2 id="sp2-current">Dashboard</h2><small>StockPro 2.0 / Operations workspace</small></div><span id="sp2-status">● Browser prototype</span>';main.prepend(strip);
+    const nameOf=b=>b.textContent.replace(/^[^\p{L}\p{N}]+/u,'').trim();
+    function update(b){document.getElementById('sp2-current').textContent=nameOf(b);document.body.classList.remove('sp2-menu-open')}
+    nav.addEventListener('click',e=>{const b=e.target.closest('button.nav-link');if(b)update(b)});
+    update(nav.querySelector('button.nav-link.active')||buttons[0]);
+    document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.body.classList.add('sp2-menu-open');q.focus()}if(e.key==='Escape')document.body.classList.remove('sp2-menu-open')});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
 </body>
 </html>
