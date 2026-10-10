@@ -27,41 +27,51 @@ html.ledger-embed .journal,html.ledger-embed .report>div{background:#f8fafd!impo
 html.ledger-embed .importBox{background:#fafbff!important;border-color:#dce2ef!important}
 </style><link rel="stylesheet" href="design-system.css"><style id="embedded-ledger-theme">
 /* Native LEDGERLB embedded accounting layout — parent controls navigation */
-html.ledger-embed,html.ledger-embed body{background:#f7f8fc!important;color:#202a40!important;font-family:Inter,ui-sans-serif,system-ui,sans-serif!important}
-html.ledger-embed body .shell{display:block!important;width:100%!important;min-height:100vh!important;background:#f7f8fc!important}
+html.ledger-embed,html.ledger-embed body{background:#f5f7fb!important;color:#202a40!important;font-family:Inter,ui-sans-serif,system-ui,sans-serif!important}
+html.ledger-embed body .shell{display:block!important;width:100%!important;min-height:100vh!important;background:#f5f7fb!important}
 html.ledger-embed body .shell>.side{display:none!important;visibility:hidden!important;width:0!important}
 html.ledger-embed body .shell>.main{display:block!important;max-width:none!important;width:100%!important;margin:0!important;padding:26px 30px 42px!important}
 html.ledger-embed .top{background:transparent!important;gap:16px!important;margin-bottom:21px!important}
-html.ledger-embed .top h1{font-size:25px!important;font-weight:800!important;letter-spacing:-.7px!important;color:#232e43!important}
-html.ledger-embed .eyebrow{color:#6358db!important;letter-spacing:1.1px!important;font-size:10px!important;font-weight:800!important}
-html.ledger-embed p{color:#8390a2!important}
+html.ledger-embed .top h1{font-size:25px!important;font-weight:800!important;letter-spacing:-.7px!important;color:#172033!important}
+html.ledger-embed .eyebrow{color:#2563eb!important;letter-spacing:1.1px!important;font-size:10px!important;font-weight:800!important}
+html.ledger-embed p{color:#64748b!important}
 html.ledger-embed .btn{background:white;border:1px solid #e1e5ed;color:#4c5870;border-radius:10px;min-height:39px;box-shadow:0 1px 3px #14213c08}
-html.ledger-embed .btn.primary{background:#6257e9!important;border-color:#6257e9!important;color:#fff!important}
+html.ledger-embed .btn.primary{background:#2563eb!important;border-color:#2563eb!important;color:#fff!important}
 html.ledger-embed .actions{gap:9px!important}
 html.ledger-embed .stats{gap:15px!important}
-html.ledger-embed .stat,html.ledger-embed .panel{border:1px solid #e8ebf2!important;border-radius:15px!important;background:#fff!important;box-shadow:0 4px 18px #172c5908!important}
+html.ledger-embed .stat,html.ledger-embed .panel{border:1px solid #e2e8f0!important;border-radius:15px!important;background:#fff!important;box-shadow:0 4px 18px #172c5908!important}
 html.ledger-embed .stat{padding:19px!important}
-html.ledger-embed .stat b{font-size:29px!important;color:#26304a!important}
-html.ledger-embed .small{color:#8b97a7!important}
+html.ledger-embed .stat b{font-size:29px!important;color:#172033!important}
+html.ledger-embed .small{color:#64748b!important}
 html.ledger-embed .panel-head{padding:17px 19px!important;border-bottom:1px solid #ebedf3!important}
-html.ledger-embed h2{font-size:15px!important;color:#25314b!important}
+html.ledger-embed h2{font-size:15px!important;color:#172033!important}
 html.ledger-embed .tabs{background:#f5f6fb!important;border-radius:9px}
-html.ledger-embed .tabs button.selected{color:#594fe0!important;background:#fff!important}
+html.ledger-embed .tabs button.selected{color:#1d4ed8!important;background:#fff!important}
 html.ledger-embed .notice{background:#fffaf0!important;color:#8c713d!important;border:1px solid #f4ead4!important;border-radius:11px}
-html.ledger-embed .field label{font-size:11px!important;color:#717d93!important}
+html.ledger-embed .field label{font-size:11px!important;color:#475569!important}
 html.ledger-embed .field input,html.ledger-embed .field select,html.ledger-embed .field textarea{min-height:41px!important;border-radius:9px!important}
-html.ledger-embed th{background:#f8f9fc!important;color:#778297!important}
-html.ledger-embed .journal,html.ledger-embed .report>div{background:#f7f8fc!important}
+html.ledger-embed th{background:#f8f9fc!important;color:#64748b!important}
+html.ledger-embed .journal,html.ledger-embed .report>div{background:#f5f7fb!important}
 html.ledger-embed .note{background:#f4f6fb;color:#68768a}
 html.ledger-embed .note.critical{background:#fff0ea;color:#944c39}
 html.ledger-embed .importBox{background:#fafaff;border-color:#dadcf4}
-html.ledger-embed .pill{background:#eeedff;color:#5e55ca}
+html.ledger-embed .pill{background:#eaf1ff;color:#1d4ed8}
 html.ledger-embed .pill.warn{background:#fff3dc;color:#986c1b}
 html.ledger-embed .pill.bad{background:#fff0ed;color:#ae3d36}
 html.ledger-embed .stack{grid-template-columns:minmax(0,1.55fr) minmax(340px,1fr)}
 html.ledger-embed .footer{color:#9aa4b3}
 @media(max-width:1050px){html.ledger-embed .stack{grid-template-columns:1fr}}
 @media(max-width:720px){html.ledger-embed body .shell>.main{padding:14px!important}html.ledger-embed .top h1{font-size:21px!important}html.ledger-embed .stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Shared module rhythm and controls */
+html.ledger-embed .btn{min-height:42px!important;padding:10px 15px!important;font-weight:650!important;border-radius:10px!important}
+html.ledger-embed .btn:focus-visible,html.ledger-embed .field input:focus-visible,html.ledger-embed .field select:focus-visible{outline:3px solid #93c5fd!important;outline-offset:2px!important}
+html.ledger-embed .panel,html.ledger-embed .stat{box-shadow:0 1px 3px #0f172a0d!important}
+html.ledger-embed .panel-body{padding:20px!important}
+html.ledger-embed .field input,html.ledger-embed .field select,html.ledger-embed .field textarea{font-size:13px!important;border-color:#cbd5e1!important}
+html.ledger-embed tr:hover{background:#f8fbff!important}
+html.ledger-embed td button.link{color:#2563eb!important}
+@media(max-width:600px){html.ledger-embed .panel-body{padding:14px!important}html.ledger-embed .panel-head{padding:14px!important}html.ledger-embed .stats{gap:10px!important}html.ledger-embed .stat{padding:14px!important}}
 </style>
 </head><body>
 <div class="shell"><aside class="side"><div class="brand">Ledger<span>LB</span></div><div class="small" style="padding:0 11px">ACCOUNTANT WORKSPACE</div><div class="nav active">▦ &nbsp; Document review</div><div class="nav">▤ &nbsp; Journal preview</div><div class="nav">▥ &nbsp; VAT workpaper</div><div class="nav">◷ &nbsp; Audit trail</div><button class="nav nav-button" id="openSettings" type="button">⚙ &nbsp; Settings & configuration</button><div class="side-bottom">LOCAL PROTOTYPE<br>Data stored in this browser only.<br>No bank connections or government filing.</div></aside>
