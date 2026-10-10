@@ -2868,36 +2868,19 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
         }
 
         function markPurchasePaid(purchaseId) {
-            const purchase = erpData.purchases.find(p => p.id === purchaseId);
-            if (purchase) {
-                purchase.paid = true;
-                purchase.paidAmount = purchase.amount;
-                purchase.paidDate = new Date().toISOString();
-
-                // If PO is already Received, auto-populate stock
-                if (purchase.status === 'Received' && !purchase.stockPopulated) {
-                    let totalItemsAdded = 0;
-                    purchase.items.forEach(item => {
-                        const product = erpData.products.find(p => p.code === item.code);
-                        if (product) {
-                            product.qty += item.qty;
-                            totalItemsAdded += item.qty;
-                        }
-                    });
-                    purchase.stockPopulated = true;
-                    notify(`✅ Order marked as PAID + Stock Populated!\n📦 Added ${totalItemsAdded} units`, '💳');
-                } else if (purchase.status === 'Received' && purchase.stockPopulated) {
-                    notify('✅ Order marked as paid (stock already added)', '💳');
-                } else {
-                    notify('✅ Order marked as paid', '💳');
-                }
-
-                saveData();
-                renderFinance();
-                renderInventory();
-                renderDashboard();
-                renderSuppliers();
-            }
+            const purchase = erpData.purchases.find(p => String(p.id) === String(purchaseId));
+            if (!purchase) return;
+            if (!confirm('Record the entire outstanding supplier balance as paid? This does not receive stock or approve accounting entries. For referenced partial payments, use Purchasing → Payments.')) return;
+            const currentPaid = Number(purchase.paidAmount || 0);
+            if (currentPaid >= Number(purchase.amount || 0)) return;
+            purchase.paidAmount = Number(purchase.amount);
+            purchase.paid = true;
+            purchase.paidDate = new Date().toISOString();
+            saveData();
+            renderFinance();
+            renderDashboard();
+            renderSuppliers();
+            notify('Payment status updated. Stock was not modified.', '✅');
         }
 
         function markAllCustomersPaid() {
@@ -6014,5 +5997,6 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
 <script src="inventory-master-import.js"></script>
 <script src="outstanding-invoices.js"></script>
+<script src="unified-purchasing.js"></script>
 </body>
 </html>
