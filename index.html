@@ -28,7 +28,14 @@
 <script>
 const sf=document.getElementById('stockFrame'),af=document.getElementById('accountFrame'),pf=document.getElementById('ptpFrame'),origin=location.origin;
 let snapshot=null,stockReady=false,accountReady=false,lastSig='',activeModule='dashboard';
-function records(){if(!snapshot)return [];return [...(snapshot.sales||[]).map(s=>({externalId:String(s.id||''),kind:'sale',amount:s.amount,party:s.customerName,date:s.date})),...(snapshot.purchases||[]).map(p=>({externalId:String(p.id||''),kind:'purchase',amount:p.amount,party:p.supplierName,date:p.date}))].filter(x=>x.externalId&&Number(x.amount)>0)}
+function records(){if(!snapshot)return [];
+const sales=(snapshot.sales||[]).map(s=>({externalId:String(s.id||''),kind:'sale',amount:s.amount,party:s.customerName,date:s.date}));
+const purchases=(snapshot.purchases||[]);
+let buying={bills:[]};try{buying=JSON.parse(localStorage.getItem('ledgerlb-purchasing-documents-v2')||'{"bills":[]}')}catch{}
+const bills=Array.isArray(buying.bills)?buying.bills.filter(b=>b.status==='approved').map(b=>{const po=purchases.find(p=>String(p.id)===String(b.poId));return {externalId:String(b.id||''),kind:'purchase',sourceType:'supplier_invoice',invoiceReference:b.reference,amount:b.amount,party:po?.supplierName||'Unknown supplier',date:b.date,poId:b.poId}}):[];
+return [...sales,...bills].filter(x=>x.externalId&&Number(x.amount)>0)}
+window.addEventListener('storage',e=>{if(e.key==='ledgerlb-purchasing-documents-v2')transfer()});
+window.addEventListener('message',e=>{if(e.origin===origin&&e.source===sf.contentWindow&&e.data?.protocol==='ledgerlb-purchasing-v1'&&e.data.type==='DOCUMENTS_UPDATED')transfer()});
 function requestSync(){if(stockReady)sf.contentWindow.postMessage({protocol:'ledgerlb-host-v1',type:'GET_SNAPSHOT'},origin)}
 function transfer(){if(!snapshot||!accountReady){document.getElementById('audit').textContent='Waiting for accounting or operations connection';requestSync();return;}af.contentWindow.postMessage({protocol:'ledgerlb-host-v1',type:'IMPORT_CANDIDATES',records:records()},origin)}
 function goStock(module){activeModule=module;if(stockReady)sf.contentWindow.postMessage({protocol:'ledgerlb-host-v1',type:module==='unified-purchasing'?'OPEN_UNIFIED_PURCHASING':module==='settlements'?'OPEN_SETTLEMENTS':'OPEN_MODULE',module},origin)}
