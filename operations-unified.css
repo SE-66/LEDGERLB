@@ -46,3 +46,35 @@ body.sp2-embedded #modalContent input,body.sp2-embedded #modalContent select,bod
 body.sp2-embedded #modalContent button{border-radius:10px!important;font-size:12px!important;font-weight:700!important;min-height:40px!important;box-shadow:none!important}
 @media(max-width:1050px){body.sp2-embedded #sales-module>.grid,body.sp2-embedded #customers-module>.grid,body.sp2-embedded #suppliers-module>.grid{grid-template-columns:minmax(220px,1fr) minmax(0,2fr)!important}}
 @media(max-width:760px){body.sp2-embedded #mainContent{padding:12px!important}body.sp2-embedded #sales-module>.grid,body.sp2-embedded #customers-module>.grid,body.sp2-embedded #suppliers-module>.grid{grid-template-columns:1fr!important}body.sp2-embedded #salesList,body.sp2-embedded #customersList,body.sp2-embedded #suppliersList{max-height:270px}body.sp2-embedded #mainContent>[id$="-module"]>.flex:first-child{align-items:flex-start;flex-direction:column}body.sp2-embedded #mainContent td,body.sp2-embedded #mainContent th{padding:10px!important}}
+
+
+/* Sales invoice dialog: one readable layout rather than nested tiny scroll panes */
+body.sp2-embedded #modalOverlay.invoice-modal{padding:20px!important;align-items:center!important}
+body.sp2-embedded #modalOverlay.invoice-modal>div{width:min(1100px,calc(100vw - 44px))!important;max-width:none!important;height:min(850px,calc(100vh - 44px))!important;max-height:none!important;padding:0!important;overflow:hidden!important;border-radius:20px!important}
+body.sp2-embedded #modalOverlay.invoice-modal #modalContent{height:100%;overflow:hidden}
+body.sp2-embedded .invoice-builder{height:100%;display:flex;flex-direction:column;min-height:0}
+body.sp2-embedded .invoice-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:22px 28px 17px;border-bottom:1px solid #e8edf2;flex:none}
+body.sp2-embedded .invoice-title-row h2{margin:4px 0 6px!important;font-size:24px!important;font-weight:800!important;color:#202124!important}
+body.sp2-embedded .invoice-title-row p{font-size:12px;color:#667586;margin:0}
+body.sp2-embedded .invoice-eyebrow{font-size:10px;letter-spacing:1px;font-weight:800;color:#1a73e8}
+body.sp2-embedded #modalContent .invoice-close{background:#f1f3f4!important;color:#44505e!important;border:0!important;width:36px;height:36px;min-height:36px!important;border-radius:50%!important;font-size:23px!important;padding:0!important}
+body.sp2-embedded .invoice-builder-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(310px,.9fr);gap:0;flex:1;min-height:0;overflow:hidden}
+body.sp2-embedded .invoice-details-col{padding:23px 27px;min-width:0;overflow-y:auto;overscroll-behavior:contain}
+body.sp2-embedded .invoice-summary-col{background:#f7f9fc;padding:23px;min-width:0;overflow-y:auto;border-left:1px solid #e8ecf1}
+body.sp2-embedded .invoice-summary-inner{background:transparent!important;padding:0!important}
+body.sp2-embedded .invoice-details-col h3,body.sp2-embedded .invoice-summary-col h3{font-size:15px!important;margin-bottom:13px!important;color:#253247!important}
+body.sp2-embedded .invoice-products-list{display:grid;gap:10px;max-height:none!important;overflow:visible!important}
+body.sp2-embedded .sales-product-item{border:1px solid #e4e8ee!important;background:#fff!important;border-radius:12px!important;padding:14px!important}
+body.sp2-embedded .sales-product-item>.flex{display:flex;align-items:center;gap:12px}
+body.sp2-embedded .sales-product-item .text-\[10px\],body.sp2-embedded .sales-product-item .text-\[9px\],body.sp2-embedded .sales-product-item .text-\[8px\],body.sp2-embedded .sales-product-item .text-\[7px\]{font-size:11px!important;line-height:1.5}
+body.sp2-embedded .sales-product-item .sales-item-qty{width:65px!important;min-width:65px!important;text-align:center}
+body.sp2-embedded .sales-product-item .bg-blue-50{background:#f7f9fd!important;border:1px solid #e5eaf2!important;border-radius:10px!important;padding:11px!important}
+body.sp2-embedded .sales-product-item .bg-emerald-100{background:#e9f6ee!important;border:1px solid #d5ecd9!important;border-radius:9px!important}
+body.sp2-embedded .sales-product-item .calculator-btn,body.sp2-embedded .sales-product-item .manual-btn{height:auto!important;min-height:35px!important;font-size:11px!important;border-radius:8px!important}
+body.sp2-embedded .invoice-summary-col .bg-white{background:#fff!important;border:1px solid #e8ecf2!important;border-radius:12px!important;padding:15px!important;margin-bottom:12px!important}
+body.sp2-embedded .invoice-summary-col #invoiceTotal{color:#188038!important;font-size:25px!important}
+body.sp2-embedded .invoice-summary-col #invoicePreviewItems td,body.sp2-embedded .invoice-summary-col #invoicePreviewItems th{font-size:11px!important;padding:9px 6px!important}
+body.sp2-embedded .invoice-footer{display:flex;justify-content:flex-end;align-items:center;gap:10px!important;flex:none;margin:0!important;padding:16px 27px!important;background:#fff;border-top:1px solid #e8edf2}
+body.sp2-embedded #modalContent .invoice-footer button{flex:0 0 auto!important;width:auto!important;min-width:120px;min-height:44px!important;font-size:13px!important;text-transform:none!important;border-radius:10px!important;padding:10px 19px!important;background:#fff!important;color:#374151!important;border:1px solid #dadce0!important}
+body.sp2-embedded #modalContent .invoice-footer button:last-child{background:#1a73e8!important;color:#fff!important;border-color:#1a73e8!important}
+@media(max-width:750px){body.sp2-embedded #modalOverlay.invoice-modal{padding:8px!important}body.sp2-embedded #modalOverlay.invoice-modal>div{width:calc(100vw - 16px)!important;height:calc(100vh - 16px)!important}body.sp2-embedded .invoice-builder-grid{display:block;overflow-y:auto}body.sp2-embedded .invoice-details-col,body.sp2-embedded .invoice-summary-col{overflow:visible;padding:17px}body.sp2-embedded .invoice-summary-col{border-left:0;border-top:1px solid #e8edf2}body.sp2-embedded .invoice-title-row{padding:18px}body.sp2-embedded .invoice-footer{padding:12px;position:relative}}
