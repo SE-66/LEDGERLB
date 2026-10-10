@@ -1,0 +1,81 @@
+/* LEDGERLB operational UI — canonical styling for legacy StockPro pages.
+   Purchasing (unified-purchasing.js) remains the visual reference.
+   Scope to embedded use only; keep legacy standalone behavior intact. */
+body.sp2-embedded{direction:ltr!important;background:#f8fafd!important;color:#202124!important;font-family:Arial,Roboto,system-ui,sans-serif!important}
+body.sp2-embedded #mainContent{direction:ltr!important;background:#f8fafd!important;padding:18px 24px 36px!important}
+body.sp2-embedded #mainContent > [id$="-module"]:not(#unified-purchases-module){direction:ltr!important;max-width:1450px;margin:0 auto!important;min-width:0}
+body.sp2-embedded #mainContent > [id$="-module"] > .flex:first-child{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;margin:0 0 20px!important;min-height:58px}
+body.sp2-embedded #mainContent > [id$="-module"] > h2:first-child,
+body.sp2-embedded #mainContent > [id$="-module"] > .flex:first-child > h2{font-family:Arial,Roboto,system-ui,sans-serif!important;font-size:27px!important;font-weight:800!important;letter-spacing:-.7px!important;line-height:1.25!important;color:#202124!important;text-transform:none!important;text-align:left!important;margin:0!important}
+body.sp2-embedded #mainContent > [id$="-module"] > .flex:first-child > .flex{display:flex;justify-content:flex-end;gap:8px!important;flex-wrap:wrap;align-items:center}
+body.sp2-embedded #mainContent > [id$="-module"] > .flex:first-child button,
+body.sp2-embedded #mainContent button.ux-action{min-height:40px!important;max-width:100%;height:auto!important;padding:10px 15px!important;background:#fff!important;color:#3c4043!important;border:1px solid #dadce0!important;border-radius:10px!important;font-size:12px!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;box-shadow:none!important;white-space:normal;line-height:1.4}
+body.sp2-embedded #mainContent > [id$="-module"] > .flex:first-child button.ux-primary,
+body.sp2-embedded #mainContent > [id$="-module"] > .flex:first-child button:last-child,
+body.sp2-embedded #mainContent button.ux-primary{background:#1a73e8!important;border-color:#1a73e8!important;color:#fff!important}
+body.sp2-embedded #mainContent button:hover{filter:brightness(.97)}
+body.sp2-embedded #mainContent button:focus-visible{outline:3px solid #a8c7fa!important;outline-offset:2px!important}
+body.sp2-embedded #mainContent .card,
+body.sp2-embedded #mainContent .bg-white,
+body.sp2-embedded #mainContent .glass{background:#fff!important;border:1px solid #e3e8ef!important;border-radius:16px!important;box-shadow:none!important;color:#202124}
+body.sp2-embedded #mainContent .card{overflow-wrap:anywhere}
+body.sp2-embedded #mainContent .card h3{font-size:15px!important;font-weight:800!important;color:#202124!important;text-transform:none!important}
+body.sp2-embedded #mainContent .grid{direction:ltr!important}
+body.sp2-embedded #mainContent .grid > *{min-width:0}
+body.sp2-embedded #sales-module > .grid,
+body.sp2-embedded #customers-module > .grid,
+body.sp2-embedded #suppliers-module > .grid{display:grid!important;grid-template-columns:minmax(250px,1fr) minmax(0,3fr)!important;gap:16px!important;align-items:stretch}
+body.sp2-embedded #sales-module > .grid > *,
+body.sp2-embedded #customers-module > .grid > *,
+body.sp2-embedded #suppliers-module > .grid > *{grid-column:auto!important;width:auto!important;min-width:0}
+body.sp2-embedded #salesList,body.sp2-embedded #customersList,body.sp2-embedded #suppliersList{max-height:min(65vh,700px);overflow-y:auto;padding:3px}
+body.sp2-embedded #salesList button,
+body.sp2-embedded #customersList button,
+body.sp2-embedded #suppliersList button{background:#fff!important;border:1px solid #e6eaf1!important;border-radius:12px!important;padding:12px!important;text-align:left!important;color:#283449!important;margin-bottom:7px!important;box-shadow:none!important;min-width:0}
+body.sp2-embedded #salesList button:hover,
+body.sp2-embedded #customersList button:hover,
+body.sp2-embedded #suppliersList button:hover{background:#f5f9ff!important;border-color:#a8c7fa!important}
+body.sp2-embedded #salesList button[class*="border-emerald-600"],
+body.sp2-embedded #customersList button[class*="border-purple-600"],
+body.sp2-embedded #suppliersList button[class*="border-orange-600"],
+body.sp2-embedded #salesList button[aria-selected="true"]{background:#e8f0fe!important;border-color:#1a73e8!important}
+body.sp2-embedded #customerHeader,
+body.sp2-embedded #supplierHeader,
+body.sp2-embedded #salesHeader{direction:ltr!important;text-align:left!important;border-bottom:1px solid #e8ecf2!important;padding-bottom:16px!important}
+body.sp2-embedded #customerHeader > .flex,
+body.sp2-embedded #supplierHeader > .flex,
+body.sp2-embedded #salesHeader > .flex{flex-direction:column;align-items:stretch;gap:10px}
+body.sp2-embedded #customerHeader h3,
+body.sp2-embedded #supplierHeader h3,
+body.sp2-embedded #salesHeader h3{font-size:23px!important;line-height:1.3!important;font-weight:800!important;overflow-wrap:anywhere}
+body.sp2-embedded #customerHeader .grid,
+body.sp2-embedded #supplierHeader .grid,
+body.sp2-embedded #salesHeader .grid{gap:10px!important}
+body.sp2-embedded #customerHeader .grid > div,
+body.sp2-embedded #supplierHeader .grid > div,
+body.sp2-embedded #salesHeader .grid > div{background:#f8fafd!important;border:1px solid #edf0f4;border-radius:10px!important;padding:12px!important;min-width:0}
+body.sp2-embedded #mainContent .data-table,body.sp2-embedded #mainContent table{direction:ltr!important;border-collapse:collapse!important;width:100%;color:#202124!important;background:#fff!important}
+body.sp2-embedded #mainContent th{background:#f8fafd!important;color:#647184!important;border-bottom:1px solid #e4e9f0!important;font-size:11px!important;text-transform:none!important;letter-spacing:0!important;padding:13px!important;font-weight:800!important;white-space:nowrap}
+body.sp2-embedded #mainContent td{background:#fff!important;color:#283449!important;border-bottom:1px solid #edf0f5!important;font-size:12px!important;padding:13px!important;vertical-align:middle}
+body.sp2-embedded #mainContent tr:hover td{background:#f8faff!important}
+body.sp2-embedded #mainContent td button{border-radius:9px!important;font-size:11px!important;padding:8px 11px!important;min-height:32px;box-shadow:none!important}
+body.sp2-embedded #mainContent .text-purple-600,
+body.sp2-embedded #mainContent .text-purple-700,
+body.sp2-embedded #mainContent .text-indigo-600,
+body.sp2-embedded #mainContent .text-indigo-700{color:#1a73e8!important}
+body.sp2-embedded #mainContent .bg-purple-100,
+body.sp2-embedded #mainContent .bg-purple-200,
+body.sp2-embedded #mainContent .bg-indigo-100,
+body.sp2-embedded #mainContent .bg-indigo-200{background:#e8f0fe!important}
+body.sp2-embedded #mainContent input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="file"]),
+body.sp2-embedded #mainContent select,
+body.sp2-embedded #mainContent textarea{height:auto!important;min-height:42px!important;border:1px solid #dadce0!important;background:#fff!important;border-radius:10px!important;color:#202124!important;box-shadow:none!important;font-size:13px!important}
+body.sp2-embedded #mainContent label{font-size:12px!important;font-weight:700!important;color:#4b5565!important;text-transform:none!important;letter-spacing:0!important}
+body.sp2-embedded #mainContent .shadow-lg,body.sp2-embedded #mainContent .shadow-xl{box-shadow:none!important}
+body.sp2-embedded #modalOverlay{direction:ltr!important}
+body.sp2-embedded #modalContent{direction:ltr!important;text-align:left!important}
+body.sp2-embedded #modalContent h2{font-size:22px!important;text-transform:none!important}
+body.sp2-embedded #modalContent label{font-size:12px!important;text-transform:none!important}
+body.sp2-embedded #mainContent .text-\[9px\],body.sp2-embedded #mainContent .text-\[10px\]{font-size:11px!important}
+@media(max-width:1050px){body.sp2-embedded #sales-module > .grid,body.sp2-embedded #customers-module > .grid,body.sp2-embedded #suppliers-module > .grid{grid-template-columns:minmax(210px,.85fr) minmax(0,2fr)!important}}
+@media(max-width:760px){body.sp2-embedded #mainContent{padding:12px!important}body.sp2-embedded #sales-module > .grid,body.sp2-embedded #customers-module > .grid,body.sp2-embedded #suppliers-module > .grid{grid-template-columns:1fr!important}body.sp2-embedded #salesList,body.sp2-embedded #customersList,body.sp2-embedded #suppliersList{max-height:280px}body.sp2-embedded #mainContent > [id$="-module"] > .flex:first-child{align-items:flex-start;flex-direction:column}body.sp2-embedded #mainContent th,body.sp2-embedded #mainContent td{padding:9px!important}}
