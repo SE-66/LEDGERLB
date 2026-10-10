@@ -3419,12 +3419,11 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
         function openSalesOrderModal() {
             const content = document.getElementById('modalContent');
             content.innerHTML = `
-                <div class="space-y-4">
-                    <h2 class="text-2xl font-black">📄 Create Invoice</h2>
+                <div class="invoice-builder"><div class="invoice-title-row"><div><div class="invoice-eyebrow">SALES / NEW DOCUMENT</div><h2>Create invoice</h2><p>Choose a customer, add products and confirm the total.</p></div><button type="button" class="invoice-close" onclick="closeModal()" aria-label="Close invoice form">×</button></div>
                     
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-h-96 overflow-y-auto custom-scroll">
+                    <div class="invoice-builder-grid">
                         <!-- LEFT: INVOICE BUILDER -->
-                        <div class="space-y-4">
+                        <div class="invoice-details-col space-y-4">
                             <div class="border-b pb-4">
                                 <h3 class="font-black mb-3">Customer</h3>
                                 <select id="invoiceCustomerSelect" class="w-full h-10 px-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-800 mb-3" onchange="updateInvoiceCustomerInfo()">
@@ -3444,7 +3443,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                                 <h3 class="font-black mb-3">Search Products</h3>
                                 <input type="text" id="salesProductSearch" class="w-full h-10 px-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-800 text-[10px] mb-3" placeholder="Search by name or code..." onkeyup="filterSalesProducts()">
                                 
-                                <div class="max-h-48 overflow-y-auto custom-scroll space-y-3" id="salesProductsList">
+                                <div class="invoice-products-list space-y-3" id="salesProductsList">
                                     ${erpData.products.map(p => {
                                         const productId = p.code.replace(/\s+/g, '_');
                                         return `
@@ -3501,8 +3500,8 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                         </div>
 
                         <!-- RIGHT: INVOICE PREVIEW -->
-                        <div class="border-l pl-4">
-                            <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 p-4 rounded-lg">
+                        <div class="invoice-summary-col">
+                            <div class="invoice-summary-inner">
                                 <h3 class="font-black mb-3">Invoice Preview</h3>
                                 
                                 <!-- Customer Info -->
@@ -3559,14 +3558,14 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                     </div>
                 </div>
 
-                <div class="mt-4 flex gap-2 pt-4 border-t">
+                <div class="invoice-footer mt-4 flex gap-2 pt-4 border-t">
                     <button onclick="closeModal()" class="flex-1 h-11 bg-slate-400 text-white rounded-lg font-black text-[10px] uppercase btn-press">Cancel</button>
                     <button onclick="processSalesOrder()" class="flex-1 h-11 bg-emerald-600 text-white rounded-lg font-black text-[10px] uppercase btn-press">
                         Create Invoice
                     </button>
                 </div>
             `;
-            document.getElementById('modalOverlay').classList.remove('hidden');
+            document.getElementById('modalOverlay').classList.add('invoice-modal');document.getElementById('modalOverlay').classList.remove('hidden');
         }
 
         // Store custom product prices
@@ -5700,6 +5699,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         function closeModal() {
             document.getElementById('modalOverlay').classList.add('hidden');
+            document.getElementById('modalOverlay').classList.remove('invoice-modal');
         }
 
         function attachSalesDocument(saleId) {
