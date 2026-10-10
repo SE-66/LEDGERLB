@@ -1,0 +1,53 @@
+/* Workspace-only UI refinement. No accounting or operational data logic changes. */
+:root{--blue:#2563eb;--border:#e2e8f0;--muted:#64748b;--surface:#fff;--canvas:#f5f7fb;--focus:#93c5fd}
+body{background:var(--canvas);color:#172033;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.shell{grid-template-columns:264px minmax(0,1fr)}
+.sidebar{background:#fff;padding:25px 13px 18px;scrollbar-width:thin}
+.brand{font-size:24px;letter-spacing:-.8px}
+.tag{line-height:1.4;color:#64748b}
+.group{color:#64748b;letter-spacing:.09em;margin-top:24px}
+button.navbtn{border-radius:11px;min-height:44px;padding:11px 13px;margin:2px 0;transition:background-color .15s,color .15s}
+button.navbtn.active{background:#eaf1ff;color:#1d4ed8;box-shadow:inset 3px 0 0 #2563eb}
+button.navbtn:hover{background:#f1f5fb}
+button.navbtn.active:hover{background:#eaf1ff}
+#moduleSearch{border:1px solid #e2e8f0;background:#f8fafc;border-radius:11px;min-height:44px}
+#moduleSearch:focus{border-color:#2563eb;box-shadow:0 0 0 3px #dbeafe}
+#sidebarBottom{background:#f8fafc;color:#64748b;border:1px solid #e2e8f0}
+.toolbar{min-height:78px;padding:17px 28px;gap:13px}
+.title{font-size:23px;line-height:1.2}
+.subtitle{line-height:1.5}
+.btn{min-height:40px;border-radius:10px;font-weight:650;transition:background-color .15s,border-color .15s}
+.btn.primary{background:#2563eb;border-color:#2563eb}
+.btn.primary:hover{background:#1d4ed8}
+.pill{border-radius:9px;white-space:nowrap}
+#premiumHome{background:var(--canvas);padding:30px clamp(16px,3vw,42px) 48px}
+#premiumHome>*{max-width:1440px;margin-left:auto;margin-right:auto}
+.hero{background:linear-gradient(118deg,#e8f1ff 0%,#eff6ff 65%,#f8fbff 100%);border:1px solid #d6e7ff;border-radius:20px;padding:30px 34px;color:#183a67}
+.hero h2{font-size:clamp(23px,2.3vw,32px);line-height:1.15;max-width:580px}
+.hero p{font-size:14px;line-height:1.6;max-width:620px;color:#486482}
+.hero button{min-height:43px;background:#2563eb;border-radius:10px;padding:11px 18px}
+.hero button:hover{background:#1d4ed8}
+.statgrid{gap:14px;margin-top:19px}
+.statcard,.quick,.task,.health{border-radius:15px;border-color:#e2e8f0;background:#fff}
+.statcard{padding:20px;min-width:0}
+.statcard strong{font-size:clamp(23px,2.5vw,31px);font-variant-numeric:tabular-nums;color:#172033;overflow-wrap:anywhere}
+.statcard .label,.statcard small{line-height:1.45}
+.section-title{margin-top:29px;margin-bottom:14px;font-size:17px;letter-spacing:-.2px}
+.taskstrip,.quickgrid{gap:13px}
+.task,.quick{min-width:0;min-height:94px;padding:17px;transition:background-color .16s,border-color .16s,transform .16s}
+.task:hover,.quick:hover{border-color:#bfdbfe;background:#f8fbff;transform:translateY(-1px)}
+.task span b,.quick b{font-size:13px;line-height:1.4}
+.task small,.quick small{font-size:12px;line-height:1.45;color:#64748b}
+.task .taskarrow{flex-shrink:0}
+.health{padding:21px}
+.health p{color:#64748b;line-height:1.5}
+.foot{border-top-color:#e2e8f0;padding:11px 28px;gap:10px 22px}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+button[disabled]{cursor:not-allowed}
+#toast{max-width:min(440px,calc(100vw - 32px));line-height:1.5}
+#mobileBackdrop{display:none}
+@media(max-width:1100px){.shell{grid-template-columns:230px minmax(0,1fr)}.toolbar{padding:14px 18px}.actions{gap:6px}}
+@media(max-width:850px){.shell{grid-template-columns:minmax(0,1fr)}.sidebar{width:min(315px,86vw);box-shadow:10px 0 38px #0f172a22;visibility:hidden}.menu-open .sidebar{visibility:visible}.menu-open #mobileBackdrop{display:block;position:fixed;inset:0;background:#0f172a77;z-index:19}.toolbar{position:relative;min-height:66px;gap:10px}.actions{width:auto}.hero{padding:25px}.hero button{white-space:normal}.foot{padding:10px 15px}}
+@media(max-width:600px){.toolbar{align-items:flex-start}.toolbar .title{font-size:20px}.toolbar .subtitle{font-size:11px}.actions{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.actions>*{flex-shrink:0}.statgrid,.taskstrip{grid-template-columns:repeat(2,minmax(0,1fr))}.statcard{padding:15px}.statcard strong{font-size:24px}.task{gap:7px;font-size:17px;align-items:flex-start}.quickgrid{grid-template-columns:1fr}#premiumHome{padding:16px 13px 30px}.hero{padding:21px}.foot{font-size:10px}}
+@media(max-width:380px){.statgrid,.taskstrip{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.task,.quick,.navbtn,.btn{transition:none!important}.task:hover,.quick:hover{transform:none}}
