@@ -157,8 +157,8 @@ $('cfgReset').onclick=()=>{if(!confirm('Delete all locally stored documents, aud
    if(docs.some(d=>d.integration_ref===ref)){skipped++;continue}
    const n=Number(r.amount);
    if(!Number.isFinite(n)||n<=0){skipped++;continue}
-   const isPO=r.kind==='purchase';
-   const d={id:rand(),document_id:ref,date:String(r.date||'').slice(0,10),party:String(r.party||'Unknown').slice(0,200),kind:r.kind,currency:'USD',net:null,vat_rate:null,exchange_rate:null,account:r.kind==='sale'?(cfg.revenue||'4100'):(cfg.expense||'6100'),description:(isPO?'PURCHASE ORDER ONLY — obtain supplier invoice before approval. ':'StockPro sales invoice — verify invoice details. ')+ 'Total may include VAT; NET and VAT must be checked. StockPro amount '+n, status:'pending',integration_ref:ref,source_type:isPO?'purchase_order':'sales_invoice',requires_source_verification:true,source_verified:false,source_amount:n};
+   const isPO=r.kind==='purchase'&&r.sourceType!=='supplier_invoice';
+   const d={id:rand(),document_id:ref,date:String(r.date||'').slice(0,10),party:String(r.party||'Unknown').slice(0,200),kind:r.kind,currency:'USD',net:null,vat_rate:null,exchange_rate:null,account:r.kind==='sale'?(cfg.revenue||'4100'):(cfg.expense||'6100'),description:(isPO?'PURCHASE ORDER ONLY — obtain supplier invoice before approval. ':r.sourceType==='supplier_invoice'?'Supplier invoice '+String(r.invoiceReference||'')+' for PO '+String(r.poId||'')+' — verify tax treatment and source evidence. ':'StockPro sales invoice — verify invoice details. ')+ 'Total may include VAT; NET and VAT must be checked. StockPro amount '+n, status:'pending',integration_ref:ref,source_type:isPO?'purchase_order':(r.sourceType==='supplier_invoice'?'supplier_invoice':'sales_invoice'),requires_source_verification:true,source_verified:false,source_amount:n};
    docs.unshift(d);log('STOCKPRO_IMPORTED',d,'Imported as unverified draft; no posting, currency or VAT assumed');added++;
   }
   if(added){selected=docs[0].id;persist();draw()}
