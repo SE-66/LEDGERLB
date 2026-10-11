@@ -116,39 +116,39 @@ body.sp2-embedded #modalContent button{border-radius:9px!important;font-size:12p
 @media(max-width:760px){body.sp2-embedded>main#mainContent{padding:16px 12px 35px!important}body.sp2-embedded #mainContent .ll-master-grid{grid-template-columns:minmax(0,1fr)!important}body.sp2-embedded #mainContent :is(#salesList,#customersList,#suppliersList){max-height:205px!important}body.sp2-embedded #mainContent .ll-module-heading{align-items:flex-start!important;flex-direction:column!important}body.sp2-embedded #mainContent :is(th,td){padding:10px!important}}
 
 /* Purchasing & settlement: move styles out of runtime JS into this shared file. */
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module){padding:5px 0 36px;max-width:1440px;margin:auto;color:var(--ll-ink);font:13px Inter,system-ui,sans-serif;direction:ltr}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-head,.sett-head){display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:19px;border-bottom:1px solid var(--ll-border)}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-sub,.sett-kicker){font-size:10px;font-weight:800;letter-spacing:1.05px;color:var(--ll-blue);text-transform:uppercase}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) h1{font-size:25px;line-height:1.2;letter-spacing:-.65px;font-weight:780;color:var(--ll-ink);margin:7px 0}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) p{font-size:12px;color:var(--ll-sub);line-height:1.65;margin:5px 0}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) button{background:white;border:1px solid #d8e0eb;color:#40516a;border-radius:9px;min-height:40px;padding:10px 14px;font:650 12px Inter,system-ui,sans-serif;cursor:pointer}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) button:hover:not(:disabled){background:#f6f9ff;border-color:#abc4f4}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-blue,.sett-pay,#settConfirm){background:var(--ll-blue)!important;color:white!important;border-color:var(--ll-blue)!important}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:18px 0 19px}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats)>div{padding:19px;background:#fff;border:1px solid var(--ll-border);border-radius:14px;box-shadow:var(--ll-shadow)}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats) span{font-size:12px;color:#65758b;display:block}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats) b{font-size:25px;color:var(--ll-ink);display:block;margin-top:7px;font-variant-numeric:tabular-nums}
-body.sp2-embedded #unified-purchases-module .up-tabs,body.sp2-embedded #settlements-module .sett-switch{display:flex;gap:5px;overflow:auto;align-items:center}
-body.sp2-embedded #unified-purchases-module .up-tabs{border-bottom:1px solid var(--ll-border);padding-bottom:7px}
-body.sp2-embedded #unified-purchases-module .up-tabs button,body.sp2-embedded #settlements-module .sett-switch button{border:0;background:transparent;border-radius:8px;white-space:nowrap;color:#687992}
-body.sp2-embedded #unified-purchases-module .up-tabs button.active,body.sp2-embedded #settlements-module .sett-switch button.selected{color:#164bbb;background:var(--ll-blue-soft);font-weight:750}
-body.sp2-embedded #unified-purchases-module .up-actions,body.sp2-embedded #settlements-module .sett-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
-body.sp2-embedded #unified-purchases-module .up-controls,body.sp2-embedded #settlements-module .sett-tools{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin:14px 0;font-size:12px;color:var(--ll-sub)}
-body.sp2-embedded #unified-purchases-module #upSearch,body.sp2-embedded #settlements-module #settSearch{padding:10px 13px;max-width:100%;width:330px;min-height:41px;background:#fff;border:1px solid #d8e0eb;border-radius:9px}
-body.sp2-embedded #unified-purchases-module .up-table,body.sp2-embedded #settlements-module .sett-table-wrap{overflow:auto;background:white;border:1px solid var(--ll-border);border-radius:14px;box-shadow:var(--ll-shadow)}
-body.sp2-embedded #unified-purchases-module table,body.sp2-embedded #settlements-module table{width:100%;border-collapse:collapse;min-width:640px}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(th,td){white-space:nowrap;padding:13px 14px;text-align:left;border-bottom:1px solid #e9eef5;font-size:12px}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) th{background:#f8fafc;color:#627189;font-weight:750}
-body.sp2-embedded #unified-purchases-module .up-empty,body.sp2-embedded #settlements-module .sett-empty{padding:44px 15px;text-align:center;color:#8492a6}
-body.sp2-embedded #unified-purchases-module .up-note,body.sp2-embedded #settlements-module .sett-footnote{font-size:11px;line-height:1.7;margin-top:16px;color:#77859a}
-body.sp2-embedded #unified-purchases-module dialog,body.sp2-embedded #settlements-module dialog{border:1px solid #dfe6ef;border-radius:16px;padding:24px;width:min(560px,95vw);max-height:90vh;overflow:auto;box-shadow:0 24px 80px #182b4c44;color:var(--ll-ink)}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) dialog::backdrop{background:#13243d88}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) dialog h2{font-size:20px;font-weight:750;letter-spacing:-.4px}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) dialog label{display:block;margin:12px 0;font-size:12px;font-weight:700}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) dialog :is(input,select){display:block;width:100%;min-height:42px;margin-top:6px;padding:10px 11px;border:1px solid #d7e0eb;border-radius:9px;font-size:13px}
-body.sp2-embedded #unified-purchases-module .up-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(#upError,#settError){color:#b42318;font-size:12px;margin:10px 0}
-@media(max-width:740px){body.sp2-embedded :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats){grid-template-columns:1fr}body.sp2-embedded #unified-purchases-module .up-grid{grid-template-columns:1fr}}
+body :is(#unified-purchases-module,#settlements-module){padding:5px 0 36px;max-width:1440px;margin:auto;color:var(--ll-ink);font:13px Inter,system-ui,sans-serif;direction:ltr}
+body :is(#unified-purchases-module,#settlements-module) :is(.up-head,.sett-head){display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:19px;border-bottom:1px solid var(--ll-border)}
+body :is(#unified-purchases-module,#settlements-module) :is(.up-sub,.sett-kicker){font-size:10px;font-weight:800;letter-spacing:1.05px;color:var(--ll-blue);text-transform:uppercase}
+body :is(#unified-purchases-module,#settlements-module) h1{font-size:25px;line-height:1.2;letter-spacing:-.65px;font-weight:780;color:var(--ll-ink);margin:7px 0}
+body :is(#unified-purchases-module,#settlements-module) p{font-size:12px;color:var(--ll-sub);line-height:1.65;margin:5px 0}
+body :is(#unified-purchases-module,#settlements-module) button{background:white;border:1px solid #d8e0eb;color:#40516a;border-radius:9px;min-height:40px;padding:10px 14px;font:650 12px Inter,system-ui,sans-serif;cursor:pointer}
+body :is(#unified-purchases-module,#settlements-module) button:hover:not(:disabled){background:#f6f9ff;border-color:#abc4f4}
+body :is(#unified-purchases-module,#settlements-module) :is(.up-blue,.sett-pay,#settConfirm){background:var(--ll-blue)!important;color:white!important;border-color:var(--ll-blue)!important}
+body :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:18px 0 19px}
+body :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats)>div{padding:19px;background:#fff;border:1px solid var(--ll-border);border-radius:14px;box-shadow:var(--ll-shadow)}
+body :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats) span{font-size:12px;color:#65758b;display:block}
+body :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats) b{font-size:25px;color:var(--ll-ink);display:block;margin-top:7px;font-variant-numeric:tabular-nums}
+body #unified-purchases-module .up-tabs,body #settlements-module .sett-switch{display:flex;gap:5px;overflow:auto;align-items:center}
+body #unified-purchases-module .up-tabs{border-bottom:1px solid var(--ll-border);padding-bottom:7px}
+body #unified-purchases-module .up-tabs button,body #settlements-module .sett-switch button{border:0;background:transparent;border-radius:8px;white-space:nowrap;color:#687992}
+body #unified-purchases-module .up-tabs button.active,body #settlements-module .sett-switch button.selected{color:#164bbb;background:var(--ll-blue-soft);font-weight:750}
+body #unified-purchases-module .up-actions,body #settlements-module .sett-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+body #unified-purchases-module .up-controls,body #settlements-module .sett-tools{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin:14px 0;font-size:12px;color:var(--ll-sub)}
+body #unified-purchases-module #upSearch,body #settlements-module #settSearch{padding:10px 13px;max-width:100%;width:330px;min-height:41px;background:#fff;border:1px solid #d8e0eb;border-radius:9px}
+body #unified-purchases-module .up-table,body #settlements-module .sett-table-wrap{overflow:auto;background:white;border:1px solid var(--ll-border);border-radius:14px;box-shadow:var(--ll-shadow)}
+body #unified-purchases-module table,body #settlements-module table{width:100%;border-collapse:collapse;min-width:640px}
+body :is(#unified-purchases-module,#settlements-module) :is(th,td){white-space:nowrap;padding:13px 14px;text-align:left;border-bottom:1px solid #e9eef5;font-size:12px}
+body :is(#unified-purchases-module,#settlements-module) th{background:#f8fafc;color:#627189;font-weight:750}
+body #unified-purchases-module .up-empty,body #settlements-module .sett-empty{padding:44px 15px;text-align:center;color:#8492a6}
+body #unified-purchases-module .up-note,body #settlements-module .sett-footnote{font-size:11px;line-height:1.7;margin-top:16px;color:#77859a}
+body #unified-purchases-module dialog,body #settlements-module dialog{border:1px solid #dfe6ef;border-radius:16px;padding:24px;width:min(560px,95vw);max-height:90vh;overflow:auto;box-shadow:0 24px 80px #182b4c44;color:var(--ll-ink)}
+body :is(#unified-purchases-module,#settlements-module) dialog::backdrop{background:#13243d88}
+body :is(#unified-purchases-module,#settlements-module) dialog h2{font-size:20px;font-weight:750;letter-spacing:-.4px}
+body :is(#unified-purchases-module,#settlements-module) dialog label{display:block;margin:12px 0;font-size:12px;font-weight:700}
+body :is(#unified-purchases-module,#settlements-module) dialog :is(input,select){display:block;width:100%;min-height:42px;margin-top:6px;padding:10px 11px;border:1px solid #d7e0eb;border-radius:9px;font-size:13px}
+body #unified-purchases-module .up-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+body :is(#unified-purchases-module,#settlements-module) :is(#upError,#settError){color:#b42318;font-size:12px;margin:10px 0}
+@media(max-width:740px){body :is(#unified-purchases-module,#settlements-module) :is(.up-stats,.sett-stats){grid-template-columns:1fr}body #unified-purchases-module .up-grid{grid-template-columns:1fr}}
 
 /* Accounting iframe: parent owns navigation; consistent cards, type, and controls. */
 html.ledger-embed,html.ledger-embed body{background:var(--ll-bg)!important;color:var(--ll-ink)!important;font-family:Inter,ui-sans-serif,system-ui,sans-serif!important}
