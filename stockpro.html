@@ -197,8 +197,8 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-black">📦 Inventory Management</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportInventoryCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-emerald-700 transition">📥 Export CSV</button>
-                    <button onclick="document.getElementById('inventoryCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-blue-700 transition">📤 Import CSV</button>
+                    <button onclick="exportInventoryCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-emerald-700 transition">Export CSV</button>
+                    <button onclick="document.getElementById('inventoryCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-blue-700 transition">Import CSV</button>
                     <button onclick="openProductModal(null)" class="px-6 h-10 bg-indigo-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-indigo-700 transition">+ New Product</button>
                 </div>
             </div>
@@ -236,12 +236,12 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
         <!-- Sales Module -->
         <div id="sales-module" class="hidden animate-in space-y-6">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-black">🛒 Sales Orders</h2>
+                <h2 class="text-2xl font-black">Sales & invoices</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportSalesInvoicesCSV()" class="px-4 h-10 bg-blue-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Export invoices to CSV">📥 Export CSV</button>
-                    <button onclick="document.getElementById('invoicesCSVFile').click()" class="px-4 h-10 bg-purple-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Import invoices from CSV">📤 Import CSV</button>
+                    <button onclick="exportSalesInvoicesCSV()" class="px-4 h-10 bg-blue-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Export invoices to CSV">Export CSV</button>
+                    <button onclick="document.getElementById('invoicesCSVFile').click()" class="px-4 h-10 bg-purple-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Import invoices from CSV">Import CSV</button>
                     <input type="file" id="invoicesCSVFile" accept=".csv" onchange="importSalesInvoicesCSV(this)" style="display:none;">
-                    <button onclick="openSalesOrderModal()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Invoice</button>
+                    <button onclick="openSalesOrderModal()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Invoice</button>
                 </div>
             </div>
 
@@ -284,8 +284,8 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-black">📥 Purchase Orders</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportPurchaseOrdersCSV()" class="px-4 h-10 bg-blue-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Export POs to CSV">📥 Export CSV</button>
-                    <button onclick="document.getElementById('poCSVFile').click()" class="px-4 h-10 bg-purple-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Import POs from CSV">📤 Import CSV</button>
+                    <button onclick="exportPurchaseOrdersCSV()" class="px-4 h-10 bg-blue-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Export POs to CSV">Export CSV</button>
+                    <button onclick="document.getElementById('poCSVFile').click()" class="px-4 h-10 bg-purple-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Import POs from CSV">Import CSV</button>
                     <input type="file" id="poCSVFile" accept=".csv" onchange="importPurchaseOrdersCSV(this)" style="display:none;">
                     <button onclick="openPurchaseOrderModal()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New PO</button>
                 </div>
@@ -328,11 +328,11 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
         <!-- Customers Module -->
         <div id="customers-module" class="hidden animate-in space-y-6">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-black">👥 Customers Management</h2>
+                <h2 class="text-2xl font-black">Customers</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportCustomersCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">📥 Export CSV</button>
-                    <button onclick="document.getElementById('customersCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">📤 Import CSV</button>
-                    <button onclick="openCustomerModal(null)" class="px-6 h-10 bg-purple-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Customer</button>
+                    <button onclick="exportCustomersCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Export CSV</button>
+                    <button onclick="document.getElementById('customersCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Import CSV</button>
+                    <button onclick="openCustomerModal(null)" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Customer</button>
                 </div>
             </div>
 
@@ -370,11 +370,11 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
         <!-- Suppliers Module -->
         <div id="suppliers-module" class="hidden animate-in space-y-6">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-black">🏭 Supplier & Products Management</h2>
+                <h2 class="text-2xl font-black">Suppliers & products</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportSuppliersWithProductsCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">📥 Export CSV</button>
-                    <button onclick="document.getElementById('suppliersCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">📤 Import CSV</button>
-                    <button onclick="openSupplierModal(null)" class="px-6 h-10 bg-orange-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Supplier</button>
+                    <button onclick="exportSuppliersWithProductsCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Export CSV</button>
+                    <button onclick="document.getElementById('suppliersCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Import CSV</button>
+                    <button onclick="openSupplierModal(null)" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Supplier</button>
                 </div>
             </div>
 
