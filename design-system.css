@@ -1,6 +1,6 @@
 /* LedgerLB shared design tokens and neutral base controls.
-   Module layouts live in workspace-polish.css, operations-unified.css,
-   and the accounting embed theme. Avoid global !important overrides. */
+   Module layouts live in ledgerlb-ui.css, the single shared host/operations/accounting
+   design system. Avoid creating additional competing theme layers. */
 :root{
   --ui-bg:#f5f7fb;
   --ui-card:#ffffff;

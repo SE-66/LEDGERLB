@@ -83,20 +83,7 @@ body.sp2-embedded #sp2-context{display:none!important}
 body.sp2-embedded{height:100vh!important}
 </style>
 <link rel="stylesheet" href="design-system.css">
-<style id="ledgerlb-operations-theme">
-/* Consistent embedded operations workspace */
-html body.sp2-embedded{background:#f8fafd!important;color:#202124!important;font-family:Arial,Roboto,ui-sans-serif,system-ui,sans-serif!important}
-body.sp2-embedded>main#mainContent{background:#f8fafd!important;padding:22px 25px!important}
-body.sp2-embedded h1,body.sp2-embedded h2,body.sp2-embedded h3{font-family:Arial,Roboto,system-ui,sans-serif!important;font-weight:800!important;letter-spacing:-.5px!important;color:#202124!important}
-body.sp2-embedded .card{border:1px solid #e3e8ef!important;border-radius:18px!important;box-shadow:none!important;background:#fff!important}
-body.sp2-embedded button{border-radius:10px}
-body.sp2-embedded button.bg-indigo-600,body.sp2-embedded button.bg-blue-600,body.sp2-embedded button.bg-purple-600{background:#1a73e8!important;color:#fff!important}
-body.sp2-embedded input:not([type=checkbox]):not([type=radio]),body.sp2-embedded select,body.sp2-embedded textarea{border:1px solid #dadce0!important;border-radius:10px!important;min-height:42px!important}
-body.sp2-embedded input:focus,body.sp2-embedded textarea:focus,body.sp2-embedded select:focus{border-color:#1a73e8!important}
-body.sp2-embedded thead th{background:#f8fafd!important;color:#5f6368!important}
-body.sp2-embedded tbody tr:hover{background:#f7faff!important}
-@media(max-width:700px){body.sp2-embedded>main#mainContent{padding:12px!important}}
-</style><link rel="stylesheet" href="operations-unified.css">
+<link rel="stylesheet" href="ledgerlb-ui.css">
 </head>
 <body class="h-screen flex flex-col">
 
@@ -194,12 +181,12 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         <!-- Inventory Module -->
         <div id="inventory-module" class="hidden animate-in space-y-6">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-black">📦 Inventory Management</h2>
+            <div class="ll-module-heading flex justify-between items-center mb-6">
+                <div class="ll-module-intro"><div class="ll-eyebrow">OPERATIONS / STOCK</div><h2>Inventory</h2></div>
                 <div class="flex gap-2">
                     <button onclick="exportInventoryCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-emerald-700 transition">Export CSV</button>
                     <button onclick="document.getElementById('inventoryCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-blue-700 transition">Import CSV</button>
-                    <button onclick="openProductModal(null)" class="px-6 h-10 bg-indigo-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-indigo-700 transition">+ New Product</button>
+                    <button onclick="openProductModal(null)" class="ll-primary px-6 h-10 bg-indigo-600 text-white rounded-xl font-black text-[10px] uppercase btn-press hover:bg-indigo-700 transition">+ New Product</button>
                 </div>
             </div>
 
@@ -235,20 +222,20 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         <!-- Sales Module -->
         <div id="sales-module" class="hidden animate-in space-y-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-black">Sales & invoices</h2>
+            <div class="ll-module-heading flex justify-between items-center mb-4">
+                <div class="ll-module-intro"><div class="ll-eyebrow">OPERATIONS / SALES</div><h2>Sales & invoices</h2></div>
                 <div class="flex gap-2">
                     <button onclick="exportSalesInvoicesCSV()" class="px-4 h-10 bg-blue-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Export invoices to CSV">Export CSV</button>
                     <button onclick="document.getElementById('invoicesCSVFile').click()" class="px-4 h-10 bg-purple-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Import invoices from CSV">Import CSV</button>
                     <input type="file" id="invoicesCSVFile" accept=".csv" onchange="importSalesInvoicesCSV(this)" style="display:none;">
-                    <button onclick="openSalesOrderModal()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Invoice</button>
+                    <button onclick="openSalesOrderModal()" class="ll-primary px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Invoice</button>
                 </div>
             </div>
 
             <!-- Sales List & Details Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div class="ll-master-grid grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <!-- Sales List (Left) -->
-                <div class="lg:col-span-1">
+                <div class="ll-list-pane lg:col-span-1">
                     <div class="card p-4 h-full flex flex-col">
                         <div class="mb-4">
                             <input type="text" id="salesSearchInput" placeholder="Search invoices..." class="w-full h-10 px-4 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-800 text-[10px]" onkeyup="filterSales()">
@@ -261,7 +248,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                 </div>
 
                 <!-- Sales Details (Right) -->
-                <div class="lg:col-span-3">
+                <div class="ll-detail-pane lg:col-span-3">
                     <div class="card p-6 flex flex-col h-full">
                         <div id="salesHeader" class="mb-6 pb-4 border-b border-slate-200 dark:border-slate-700">
                             <div class="text-center opacity-50 py-8">
@@ -281,13 +268,13 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         <!-- Purchases Module -->
         <div id="purchases-module" class="hidden animate-in space-y-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-black">📥 Purchase Orders</h2>
+            <div class="ll-module-heading flex justify-between items-center mb-4">
+                <div class="ll-module-intro"><div class="ll-eyebrow">OPERATIONS / PURCHASING</div><h2>Purchase orders</h2></div>
                 <div class="flex gap-2">
                     <button onclick="exportPurchaseOrdersCSV()" class="px-4 h-10 bg-blue-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Export POs to CSV">Export CSV</button>
                     <button onclick="document.getElementById('poCSVFile').click()" class="px-4 h-10 bg-purple-600 text-white rounded-lg font-black text-[9px] uppercase btn-press" title="Import POs from CSV">Import CSV</button>
                     <input type="file" id="poCSVFile" accept=".csv" onchange="importPurchaseOrdersCSV(this)" style="display:none;">
-                    <button onclick="openPurchaseOrderModal()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New PO</button>
+                    <button onclick="openPurchaseOrderModal()" class="ll-primary px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New PO</button>
                 </div>
             </div>
 
@@ -327,19 +314,19 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         <!-- Customers Module -->
         <div id="customers-module" class="hidden animate-in space-y-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-black">Customers</h2>
+            <div class="ll-module-heading flex justify-between items-center mb-4">
+                <div class="ll-module-intro"><div class="ll-eyebrow">RELATIONSHIPS / CUSTOMERS</div><h2>Customers</h2></div>
                 <div class="flex gap-2">
                     <button onclick="exportCustomersCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Export CSV</button>
                     <button onclick="document.getElementById('customersCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Import CSV</button>
-                    <button onclick="openCustomerModal(null)" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Customer</button>
+                    <button onclick="openCustomerModal(null)" class="ll-primary px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Customer</button>
                 </div>
             </div>
 
             <!-- Customer Selection & Details Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div class="ll-master-grid grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <!-- Customers List (Left) -->
-                <div class="lg:col-span-1">
+                <div class="ll-list-pane lg:col-span-1">
                     <div class="card p-4 h-full flex flex-col">
                         <h3 class="text-lg font-black mb-4">Customers</h3>
                         <div id="customersList" class="space-y-2 flex-1 overflow-y-auto custom-scroll">
@@ -349,7 +336,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                 </div>
 
                 <!-- Customer Details (Right) -->
-                <div class="lg:col-span-3">
+                <div class="ll-detail-pane lg:col-span-3">
                     <div class="card p-6 flex flex-col h-full">
                         <div id="customerHeader" class="mb-6 pb-4 border-b border-slate-200 dark:border-slate-700">
                             <div class="text-center opacity-50 py-8">
@@ -369,19 +356,19 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         <!-- Suppliers Module -->
         <div id="suppliers-module" class="hidden animate-in space-y-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-black">Suppliers & products</h2>
+            <div class="ll-module-heading flex justify-between items-center mb-4">
+                <div class="ll-module-intro"><div class="ll-eyebrow">RELATIONSHIPS / SUPPLIERS</div><h2>Suppliers & products</h2></div>
                 <div class="flex gap-2">
                     <button onclick="exportSuppliersWithProductsCSV()" class="px-6 h-10 bg-emerald-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Export CSV</button>
                     <button onclick="document.getElementById('suppliersCSVFile').click()" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">Import CSV</button>
-                    <button onclick="openSupplierModal(null)" class="px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Supplier</button>
+                    <button onclick="openSupplierModal(null)" class="ll-primary px-6 h-10 bg-blue-600 text-white rounded-xl font-black text-[10px] uppercase btn-press">+ New Supplier</button>
                 </div>
             </div>
 
             <!-- Supplier Selection & Products Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div class="ll-master-grid grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <!-- Suppliers List (Left) -->
-                <div class="lg:col-span-1">
+                <div class="ll-list-pane lg:col-span-1">
                     <div class="card p-4 h-full flex flex-col">
                         <h3 class="text-lg font-black mb-4">Suppliers</h3>
                         <div id="suppliersList" class="space-y-2 flex-1 overflow-y-auto custom-scroll">
@@ -391,7 +378,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                 </div>
 
                 <!-- Products Detail (Right) -->
-                <div class="lg:col-span-3">
+                <div class="ll-detail-pane lg:col-span-3">
                     <div class="card p-6 flex flex-col h-full">
                         <div id="supplierHeader" class="mb-6 pb-4 border-b border-slate-200 dark:border-slate-700">
                             <div class="text-center opacity-50 py-8">
@@ -505,7 +492,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         <!-- Finance Module -->
         <div id="finance-module" class="hidden animate-in space-y-6">
-            <h2 class="text-2xl font-black mb-4">💰 Finance & Accounting</h2>
+            <h2 class="text-2xl font-black mb-4">Finance overview</h2>
             
             <!-- Accounting Summary Cards -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -773,7 +760,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
             </div>
         </div>
         <div id="reports-module" class="hidden animate-in space-y-6">
-            <h2 class="text-2xl font-black mb-4">📈 Advanced Reports</h2>
+            <h2 class="text-2xl font-black mb-4">Operational reports</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="card p-6">
                     <h3 class="text-lg font-black mb-4">📊 Sales by Category</h3>
@@ -796,7 +783,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
 
         <!-- Settings Module -->
         <div id="settings-module" class="hidden animate-in space-y-6">
-            <h2 class="text-2xl font-black mb-4">⚙️ Settings & Configuration</h2>
+            <h2 class="text-2xl font-black mb-4">Business settings</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="card p-6">
                     <h3 class="text-lg font-black mb-4">🏢 Company Information</h3>
@@ -1195,14 +1182,14 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                     <div class="flex-1">
                         <!-- Invoice ID - BIG & BOLD -->
                         <div class="mb-3">
-                            <div class="text-[11px] font-black uppercase opacity-60 mb-1">📄 Invoice</div>
-                            <div class="text-4xl font-black text-emerald-700 dark:text-emerald-400 mb-2">${sale.id}</div>
+                            <div class="text-[11px] font-black uppercase opacity-60 mb-1">Invoice</div>
+                            <div class="ll-record-title">${sale.id}</div>
                         </div>
 
                         <!-- Customer Name - BIG & BOLD -->
                         <div class="mb-4">
-                            <div class="text-[11px] font-black uppercase opacity-60 mb-1">👤 Customer</div>
-                            <div class="text-3xl font-black text-slate-900 dark:text-white">${sale.customerName}</div>
+                            <div class="text-[11px] font-black uppercase opacity-60 mb-1">Customer</div>
+                            <div class="ll-record-subtitle">${sale.customerName}</div>
                         </div>
 
                         <!-- Date and Status -->
@@ -1490,7 +1477,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                 <div class="flex justify-between items-start">
                     <div class="flex-1">
                         <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-2xl font-black">${customer.name}</h3>
+                            <h3 class="ll-record-name">${customer.name}</h3>
                             <span class="bg-purple-200 dark:bg-purple-800 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-[10px] font-bold">${customer.type || 'Customer'}</span>
                         </div>
                         <div class="grid grid-cols-4 gap-4 text-[11px] mt-4">
@@ -1647,7 +1634,7 @@ body.sp2-embedded tbody tr:hover{background:#f7faff!important}
                 <div class="flex justify-between items-start">
                     <div class="flex-1">
                         <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-2xl font-black">${supplier.name}</h3>
+                            <h3 class="ll-record-name">${supplier.name}</h3>
                             <span class="bg-orange-200 dark:bg-orange-800 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-[10px] font-bold">${supplier.type}</span>
                         </div>
                         <div class="grid grid-cols-4 gap-4 text-[11px] mt-4">
