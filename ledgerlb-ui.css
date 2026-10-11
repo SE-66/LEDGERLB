@@ -219,3 +219,25 @@ body.sp2-embedded #modalContent .invoice-footer button{flex:0 0 auto!important;w
 body.sp2-embedded #modalContent .invoice-footer button:last-child{background:#245bdf!important;color:#fff!important;border-color:#245bdf!important}
 @media(max-width:750px){body.sp2-embedded #modalOverlay.invoice-modal{padding:8px!important}body.sp2-embedded #modalOverlay.invoice-modal>div{width:calc(100vw - 16px)!important;height:calc(100vh - 16px)!important}body.sp2-embedded .invoice-builder-grid{display:block;overflow-y:auto}body.sp2-embedded .invoice-details-col,body.sp2-embedded .invoice-summary-col{overflow:visible;padding:17px}body.sp2-embedded .invoice-summary-col{border-left:0;border-top:1px solid #e1e8f0}body.sp2-embedded .invoice-title-row{padding:18px}body.sp2-embedded .invoice-footer{padding:12px;position:relative}}
 
+
+/* Record detail hierarchy replaces the legacy oversized invoice labels. */
+body.sp2-embedded #mainContent .ll-record-title{font:800 clamp(17px,1.7vw,22px)/1.35 Inter,system-ui,sans-serif!important;letter-spacing:-.45px!important;color:#1d3c70!important;overflow-wrap:anywhere!important;margin:2px 0 7px}
+body.sp2-embedded #mainContent .ll-record-subtitle{font:700 clamp(15px,1.5vw,19px)/1.35 Inter,system-ui,sans-serif!important;letter-spacing:-.35px!important;color:var(--ll-ink)!important;overflow-wrap:anywhere!important}
+body.sp2-embedded #mainContent .ll-record-name{font:750 20px/1.35 Inter,system-ui,sans-serif!important;letter-spacing:-.5px!important;color:var(--ll-ink)!important;overflow-wrap:anywhere!important}
+body.sp2-embedded #mainContent :is(#salesHeader,#customerHeader,#supplierHeader) .flex.justify-between.items-start{gap:16px!important;flex-wrap:wrap!important}
+body.sp2-embedded #mainContent :is(#salesHeader,#customerHeader,#supplierHeader)>.flex>.flex-1{min-width:0}
+body.sp2-embedded #mainContent :is(#salesHeader,#customerHeader,#supplierHeader) .grid.grid-cols-3,body.sp2-embedded #mainContent :is(#salesHeader,#customerHeader,#supplierHeader) .grid.grid-cols-4{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))!important;gap:9px!important}
+body.sp2-embedded #mainContent :is(#salesHeader,#customerHeader,#supplierHeader) .flex.gap-2>button{background:#fff!important;color:#41516a!important;border:1px solid #d7e0eb!important;padding:9px 13px!important;min-height:38px!important}
+body.sp2-embedded #mainContent :is(#salesHeader,#customerHeader,#supplierHeader) .flex.gap-2>button:first-child{background:var(--ll-blue)!important;color:#fff!important;border-color:var(--ll-blue)!important}
+body.sp2-embedded #mainContent :is(#salesHeader,#customerHeader,#supplierHeader) .status-badge{border-radius:7px!important;font-size:11px!important}
+
+/* Compatibility skin for the legacy, separately addressable purchase-to-pay prototype.
+   This does not claim it is connected to the live unified Purchasing ledger. */
+body:has(.stepper) {background:var(--ll-bg)!important;color:var(--ll-ink)!important;font:13px Inter,system-ui,sans-serif!important}
+body:has(.stepper) h1,body:has(.stepper) h2{color:var(--ll-ink)!important;letter-spacing:-.6px!important}
+body:has(.stepper) .eyebrow{color:var(--ll-blue)!important}
+body:has(.stepper) .panel,body:has(.stepper) .step{border:1px solid var(--ll-border)!important;background:#fff!important;border-radius:14px!important;box-shadow:var(--ll-shadow)!important}
+body:has(.stepper) .step.active{background:var(--ll-blue-soft)!important;border-color:#b0c8ff!important}
+body:has(.stepper) button{border-radius:9px!important;font-size:12px!important;color:#43546e!important;border-color:#d7e0eb!important}
+body:has(.stepper) button.primary{background:var(--ll-blue)!important;color:#fff!important;border-color:var(--ll-blue)!important}
+body:has(.stepper) .chip{background:var(--ll-blue-soft)!important;color:#1b4db6!important;border-radius:8px!important}
